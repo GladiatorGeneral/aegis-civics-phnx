@@ -2,14 +2,14 @@
 
 import { CollapsibleCard } from "@/components/ui/CollapsibleCard";
 import { LeaderCard } from "@/components/leadership/LeaderCard";
-import { fetchAllLeaders } from "@/lib/data/leadership";
 import type { GovernmentLeader } from "@/lib/types";
 import { Users, Building2, Home, Briefcase } from "lucide-react";
 
-export async function LeaderCategoryDashboard() {
-  // Fetch all leaders
-  const leaders = await fetchAllLeaders();
-  
+interface LeaderCategoryDashboardProps {
+  leaders: GovernmentLeader[];
+}
+
+export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProps) {
   // Filter leaders by type
   const senators = leaders.filter((l: GovernmentLeader) => l.type === "senate");
   const representatives = leaders.filter((l: GovernmentLeader) => l.type === "house");

@@ -3,12 +3,15 @@ import { LeaderCard } from "@/components/leadership/LeaderCard";
 import { InfrastructureCard } from "@/components/infrastructure/InfrastructureCard";
 import { BillSpendingCorrelationChart } from "@/components/infrastructure/BillSpendingCorrelationChart";
 import { LeaderCategoryDashboard } from "@/components/dashboard/LeaderCategoryDashboard";
-import { fetchLeadersSample } from "@/lib/data/leadership";
+import { fetchLeadersSample, fetchAllLeaders } from "@/lib/data/leadership";
 
 export default async function DashboardPage() {
   // Fetch 50 leaders with real voting data enrichment for first 10
   const leaders = await fetchLeadersSample(50, true);
   const featuredLeader = leaders[0];
+  
+  // Fetch all leaders for category dashboard
+  const allLeaders = await fetchAllLeaders();
 
   return (
     <div className="min-h-screen bg-linear-to-b from-slate-950 via-slate-950 to-black text-white">
@@ -52,7 +55,7 @@ export default async function DashboardPage() {
           <p className="text-gray-400 mb-6">
             Browse senators, representatives, governors, and mayors organized by role. Click each section to expand.
           </p>
-          <LeaderCategoryDashboard />
+          <LeaderCategoryDashboard leaders={allLeaders} />
         </section>
 
         {/* Infrastructure Section */}
