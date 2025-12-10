@@ -237,9 +237,7 @@ const baseMockLeaders = mockLeaders.filter(
 );
 // Combine all leaders and enrich with generated data
 const allLeadersRaw: GovernmentLeader[] = [...senators, ...houseRepresentatives, ...governors, ...mayors];
-console.log('allLeadersRaw length:', allLeadersRaw.length);
 const allLeaders: GovernmentLeader[] = allLeadersRaw.map(enrichWithGeneratedData);
-console.log('allLeaders length after enrichment:', allLeaders.length);
 
 /**
  * Fetch real voting data for a congressional member
