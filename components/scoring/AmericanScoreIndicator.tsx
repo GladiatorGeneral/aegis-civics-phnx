@@ -10,6 +10,7 @@ interface AmericanScoreIndicatorProps {
   size?: "sm" | "md" | "lg";
   showLabel?: boolean;
   showDetails?: boolean;
+  interactive?: boolean;
 }
 
 export function AmericanScoreIndicator({
@@ -18,6 +19,7 @@ export function AmericanScoreIndicator({
   size = "md",
   showLabel = true,
   showDetails = false,
+  interactive = true,
 }: AmericanScoreIndicatorProps) {
   const [expanded, setExpanded] = useState(false);
 
@@ -54,12 +56,14 @@ export function AmericanScoreIndicator({
     lg: "text-base",
   };
 
+  const Wrapper = interactive ? "button" : "div";
+
   return (
     <div className="relative">
-      <button
-        type="button"
-        onClick={() => setExpanded((prev) => !prev)}
-        className={`flex items-center gap-2 p-2 rounded-lg ${currentConfig.bgColor} hover:opacity-90 transition-opacity`}
+      <Wrapper
+        {...(interactive ? { type: "button", onClick: () => setExpanded((prev) => !prev) } : {})}
+        className={`flex items-center gap-2 p-2 rounded-lg ${currentConfig.bgColor} ${interactive ? "hover:opacity-90 cursor-pointer" : ""} transition-opacity`}
+        role={interactive ? undefined : "presentation"}
       >
         <div className="relative">
           <div className={`w-4 h-4 rounded-full ${currentConfig.color} animate-pulse`} />
@@ -86,9 +90,9 @@ export function AmericanScoreIndicator({
         </div>
 
         <Icon className={`w-5 h-5 ${currentConfig.textColor}`} />
-      </button>
+      </Wrapper>
 
-      {expanded && showDetails && (
+      {interactive && expanded && showDetails && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

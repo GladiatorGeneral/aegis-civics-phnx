@@ -55,7 +55,7 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+        <div className="p-2 rounded-lg bg-linear-to-br from-blue-500/20 to-purple-500/20">
           <Brain className="w-6 h-6 text-blue-400" />
         </div>
         <div>
@@ -73,14 +73,14 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
               onClick={() => setSelectedInsight(key)}
               className={`p-4 rounded-xl transition-all ${
                 selectedInsight === key
-                  ? "bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10"
+                  ? "bg-linear-to-br from-gray-800 to-gray-900 border border-white/10"
                   : "bg-gray-900/50 hover:bg-gray-800/50"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg bg-gradient-to-br ${insight.color}/20`}>
-                    <Icon className={`w-5 h-5 bg-gradient-to-br ${insight.color} bg-clip-text text-transparent`} />
+                  <div className={`p-2 rounded-lg bg-linear-to-br ${insight.color}/20`}>
+                    <Icon className={`w-5 h-5 bg-linear-to-br ${insight.color} bg-clip-text text-transparent`} />
                   </div>
                   <span className="font-medium text-sm">{insight.title}</span>
                 </div>
@@ -100,8 +100,8 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${currentInsight.color}/20`}>
-                  <CurrentIcon className={`w-6 h-6 bg-gradient-to-br ${currentInsight.color} bg-clip-text text-transparent`} />
+                <div className={`p-3 rounded-xl bg-linear-to-br ${currentInsight.color}/20`}>
+                  <CurrentIcon className={`w-6 h-6 bg-linear-to-br ${currentInsight.color} bg-clip-text text-transparent`} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">{currentInsight.title}</h3>
@@ -132,7 +132,7 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <div className="w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0" />
+                      <div className="w-2 h-2 mt-2 rounded-full bg-linear-to-r from-blue-500 to-purple-500 shrink-0" />
                       <span className="text-gray-300">{finding}</span>
                     </motion.li>
                   ))}
@@ -150,7 +150,7 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
                       transition={{ delay: index * 0.1 }}
                       className="p-4 rounded-lg bg-gray-900/50"
                     >
-                      <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      <div className="text-2xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                         {typeof value === "number" ? `${value}%` : value}
                       </div>
                       <div className="text-sm text-gray-400 mt-1 capitalize">{key.replace(/([A-Z])/g, " $1").trim()}</div>
@@ -169,7 +169,7 @@ export function AIAnalysisDashboard({ leaders }: AIAnalysisDashboardProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="p-4 rounded-lg bg-gradient-to-br from-gray-800/50 to-gray-900/50"
+                    className="p-4 rounded-lg bg-linear-to-br from-gray-800/50 to-gray-900/50"
                   >
                     <div className="flex items-start gap-3">
                       <div className="p-2 rounded-lg bg-blue-500/10">
@@ -197,7 +197,7 @@ function safeAverage(values: number[]) {
 }
 
 function calculateCoalitions(leaders: GovernmentLeader[]) {
-  const bipartisanGroups = leaders.filter((l) => l.metrics.bipartisanshipScore >= 7);
+  const bipartisanGroups = leaders.filter((l) => (l.metrics?.bipartisanshipScore ?? 0) >= 7);
 
   return {
     findings: [
@@ -206,7 +206,7 @@ function calculateCoalitions(leaders: GovernmentLeader[]) {
       "Partisan divide narrowing on tech regulation",
     ],
     metrics: {
-      bipartisanScore: safeAverage(leaders.map((l) => l.metrics.bipartisanshipScore)),
+      bipartisanScore: safeAverage(leaders.map((l) => l.metrics?.bipartisanshipScore ?? 0)),
       coalitionStrength: 72,
       crossPartyAlignment: 65,
     },
@@ -218,7 +218,7 @@ function calculateCoalitions(leaders: GovernmentLeader[]) {
 }
 
 function calculateTrends(leaders: GovernmentLeader[]) {
-  const activeLeaders = leaders.filter((l) => l.metrics.billsSponsored >= 3);
+  const activeLeaders = leaders.filter((l) => (l.metrics?.billsSponsored ?? 0) >= 3);
 
   return {
     findings: [
@@ -240,7 +240,7 @@ function calculateTrends(leaders: GovernmentLeader[]) {
 
 function calculatePriorities(leaders: GovernmentLeader[]) {
   const priorities = new Set<string>();
-  leaders.forEach((l) => l.aiInsights.priorities.forEach((p) => priorities.add(p)));
+  leaders.forEach((l) => l.aiInsights?.priorities?.forEach((p) => priorities.add(p)));
 
   return {
     findings: [
@@ -261,7 +261,7 @@ function calculatePriorities(leaders: GovernmentLeader[]) {
 }
 
 function calculatePredictions(leaders: GovernmentLeader[]) {
-  const vulnerable = leaders.filter((l) => l.aiInsights.prediction === "vulnerable");
+  const vulnerable = leaders.filter((l) => l.aiInsights?.prediction === "vulnerable");
 
   return {
     findings: [

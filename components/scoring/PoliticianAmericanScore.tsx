@@ -1,16 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import {
-  AlertTriangle,
-  BarChart3,
-  Globe,
-  Shield,
-  TrendingDown,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+import { AlertTriangle, Globe, Shield, TrendingDown, TrendingUp, Users } from "lucide-react";
 import { AmericanScoreIndicator } from "@/components/scoring/AmericanScoreIndicator";
 import { GovernmentLeader, VotingAnalysis } from "@/lib/types/leadership";
 
@@ -23,14 +14,13 @@ type ScoreCategory = "american" | "neutral" | "unamerican";
 
 export function PoliticianAmericanScore({ leader, votingRecord }: PoliticianAmericanScoreProps) {
   const [timeframe, setTimeframe] = useState<"all" | "year" | "term">("all");
-  const [categoryFilter] = useState<string>("all");
 
   const overallScore = useMemo(() => calculateAmericanScore(votingRecord), [votingRecord]);
   const scoreCategory: ScoreCategory = overallScore >= 67 ? "american" : overallScore >= 34 ? "neutral" : "unamerican";
 
   const categoryScores = useMemo(() => {
     if (votingRecord.length === 0) {
-      return { benefitScope: 50, foreignImpact: 50, transparency: 50 };
+      return { benefitScope: 0, foreignImpact: 0, transparency: 0 };
     }
 
     return {
@@ -62,7 +52,7 @@ export function PoliticianAmericanScore({ leader, votingRecord }: PoliticianAmer
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-2xl font-bold">American Score</h3>
-          <p className="text-gray-400">Measures alignment with "For All Americans" principle</p>
+          <p className="text-gray-400">Measures {leader.name}&apos;s alignment with &quot;For All Americans&quot; principle</p>
         </div>
         <div className="text-right">
           <div className="text-4xl font-bold">
@@ -83,7 +73,7 @@ export function PoliticianAmericanScore({ leader, votingRecord }: PoliticianAmer
         </div>
       </div>
 
-      <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-white/10">
+      <div className="p-6 rounded-2xl bg-linear-to-br from-gray-900/50 to-gray-800/50 border border-white/10">
         <AmericanScoreIndicator score={scoreCategory} value={overallScore} size="lg" showDetails />
 
         <div className="flex items-center gap-2 mt-4 text-sm">
@@ -220,7 +210,7 @@ function CategoryCard({
         <span className="text-gray-500 text-xl">/100</span>
       </div>
       <div className="h-2 rounded-full bg-gray-800 mt-2">
-        <div className={`h-full rounded-full bg-gradient-to-r ${gradient}`} style={{ width: `${value}%` }} />
+        <div className={`h-full rounded-full bg-linear-to-r ${gradient}`} style={{ width: `${value}%` }} />
       </div>
     </div>
   );
@@ -238,7 +228,7 @@ function VotesList({
   accent: string;
 }) {
   return (
-    <div className="p-4 rounded-xl bg-gradient-to-br from-gray-900/50 to-transparent border border-white/10">
+    <div className="p-4 rounded-xl bg-linear-to-br from-gray-900/50 to-transparent border border-white/10">
       <div className="flex items-center gap-2 mb-3">
         {icon}
         <h5 className="font-semibold">{title}</h5>

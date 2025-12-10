@@ -43,12 +43,16 @@ export function LeadershipGrid({ leaders, chamber, title, showFilters = true }: 
         switch (sortBy) {
           case "name":
             return a.name.localeCompare(b.name);
-          case "activity":
-            return (
-              b.metrics.billsSponsored + b.metrics.voteAttendance - (a.metrics.billsSponsored + a.metrics.voteAttendance)
-            );
-          case "priority":
-            return (b.aiInsights.priority || 0) - (a.aiInsights.priority || 0);
+          case "activity": {
+            const aActivity = (a.metrics?.billsSponsored ?? 0) + (a.metrics?.voteAttendance ?? 0);
+            const bActivity = (b.metrics?.billsSponsored ?? 0) + (b.metrics?.voteAttendance ?? 0);
+            return bActivity - aActivity;
+          }
+          case "priority": {
+            const aPriority = a.aiInsights?.priority ?? 0;
+            const bPriority = b.aiInsights?.priority ?? 0;
+            return bPriority - aPriority;
+          }
           default:
             return 0;
         }
@@ -61,7 +65,7 @@ export function LeadershipGrid({ leaders, chamber, title, showFilters = true }: 
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             {resolvedTitle}
           </h2>
           <p className="text-gray-400 mt-2">

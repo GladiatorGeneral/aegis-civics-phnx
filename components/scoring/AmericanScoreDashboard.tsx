@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { AmericanScoreIndicator } from "@/components/scoring/AmericanScoreIndicator";
 import { GovernmentLeader, VotingAnalysis } from "@/lib/types/leadership";
+import { EnhancedInfrastructureScore } from "@/lib/data/infrastructure-score-enhanced";
 import {
   BarChart3,
   Download,
@@ -16,9 +18,10 @@ import {
 
 interface AmericanScoreDashboardProps {
   leaders: GovernmentLeader[];
+  enhancedInfraScore: EnhancedInfrastructureScore;
 }
 
-export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps) {
+export function AmericanScoreDashboard({ leaders, enhancedInfraScore }: AmericanScoreDashboardProps) {
   const [chamberFilter, setChamberFilter] = useState<
     | "all"
     | "senate"
@@ -46,7 +49,13 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
       .sort((a, b) => b.americanScore.score - a.americanScore.score);
   }, [leaders, chamberFilter, partyFilter, scoreRange]);
 
-  const stats = useMemo(() => calculateStats(leadersWithScores), [leadersWithScores]);
+  const stats = useMemo(() => {
+    const leaderStats = calculateStats(leadersWithScores);
+    return {
+      ...leaderStats,
+      infrastructureScore: enhancedInfraScore,
+    };
+  }, [leadersWithScores, enhancedInfraScore]);
 
   return (
     <div className="space-y-6">
@@ -175,10 +184,13 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
                   </td>
                   <td className="p-4">
                     <div className="flex items-center gap-3">
-                      <img
-                        src={leader.imageUrl ?? "https://placehold.co/80x80"}
+                      <Image
+                        src={leader.imageUrl ?? "https://placehold.co/40x40/png"}
                         alt={leader.name}
+                        width={40}
+                        height={40}
                         className="w-10 h-10 rounded-full border border-gray-700 object-cover"
+                        loading="lazy"
                       />
                       <div>
                         <div className="font-semibold">{leader.name}</div>
@@ -252,8 +264,8 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
         </table>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="p-6 rounded-xl bg-linear-to-br from-gray-900/50 to-gray-800/50">
           <h4 className="font-bold mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-400" />
             Score Distribution
@@ -287,7 +299,7 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
           </div>
         </div>
 
-        <div className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50">
+        <div className="p-6 rounded-xl bg-linear-to-br from-gray-900/50 to-gray-800/50">
           <h4 className="font-bold mb-4 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-purple-400" />
             Chamber Comparison
@@ -309,6 +321,30 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
             ))}
           </div>
         </div>
+
+        <div className="p-6 rounded-xl bg-linear-to-br from-gray-900/50 to-gray-800/50">
+          <h4 className="font-bold mb-4">Infrastructure American Score</h4>
+          <div className="space-y-3">
+            <InfraStat 
+              label="Benefit Scope" 
+              helper="Who benefits?" 
+              value={stats.infrastructureScore.benefitScope.score} 
+              breakdown={stats.infrastructureScore.benefitScope.breakdown}
+            />
+            <InfraStat 
+              label="Foreign Impact" 
+              helper="Domestic vs Foreign" 
+              value={stats.infrastructureScore.foreignImpact.score} 
+              breakdown={stats.infrastructureScore.foreignImpact.breakdown}
+            />
+            <InfraStat 
+              label="Transparency" 
+              helper="Open vs Closed Process" 
+              value={stats.infrastructureScore.transparency.score} 
+              breakdown={stats.infrastructureScore.transparency.breakdown}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -316,11 +352,11 @@ export function AmericanScoreDashboard({ leaders }: AmericanScoreDashboardProps)
 
 function calculateLeaderAmericanScore(votingRecord: VotingAnalysis[]) {
   if (!votingRecord.length) {
-    return { score: 50, category: "neutral" as const };
+    return { score: 0, category: "neutral" as const };
   }
 
   const avgScore = Math.round(
-    votingRecord.reduce((acc, vote) => acc + (vote.americanScore?.overall ?? 50), 0) / votingRecord.length,
+    votingRecord.reduce((acc, vote) => acc + (vote.americanScore?.overall ?? 0), 0) / votingRecord.length,
   );
 
   const category = avgScore >= 67 ? ("american" as const) : avgScore >= 34 ? ("neutral" as const) : ("unamerican" as const);
@@ -383,12 +419,51 @@ function calculateStats(leaders: (GovernmentLeader & { americanScore: { score: n
 
 function StatCard({ label, value, gradient }: { label: string; value: number; gradient: string }) {
   return (
-    <div className="p-4 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50">
+    <div className="p-4 rounded-xl bg-linear-to-br from-gray-900/50 to-gray-800/50">
       <div className="text-3xl font-bold">{value}</div>
       <div className="text-gray-400 text-sm">{label}</div>
       <div className="h-2 rounded-full bg-gray-800 mt-2">
-        <div className={`h-full rounded-full bg-gradient-to-r ${gradient}`} style={{ width: `${value}%` }} />
+        <div className={`h-full rounded-full bg-linear-to-r ${gradient}`} style={{ width: `${value}%` }} />
       </div>
+    </div>
+  );
+}
+
+function InfraStat({ 
+  label, 
+  helper, 
+  value, 
+  breakdown 
+}: { 
+  label: string; 
+  helper: string; 
+  value: number; 
+  breakdown?: Record<string, number>;
+}) {
+  return (
+    <div className="p-3 rounded-lg bg-gray-900/60 border border-white/5 hover:border-white/10 transition-colors group">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-semibold text-sm">{label}</div>
+          <div className="text-xs text-gray-500">{helper}</div>
+        </div>
+        <div className="text-xl font-bold">{value}/100</div>
+      </div>
+      <div className="h-2 rounded-full bg-gray-800 mt-2">
+        <div className="h-full rounded-full bg-linear-to-r from-blue-500 to-purple-500" style={{ width: `${value}%` }} />
+      </div>
+      {breakdown && (
+        <div className="mt-2 pt-2 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="text-xs text-gray-400 space-y-1">
+            {Object.entries(breakdown).map(([key, val]) => (
+              <div key={key} className="flex justify-between">
+                <span className="capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                <span className="font-mono">{Math.round(val)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

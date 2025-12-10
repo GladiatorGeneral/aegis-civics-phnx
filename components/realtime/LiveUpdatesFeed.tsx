@@ -6,37 +6,35 @@ import { AlertCircle, Clock, ExternalLink, FileText, Radio, Vote } from "lucide-
 import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
 import { LiveUpdate } from "@/lib/types";
 
+const initialUpdates: LiveUpdate[] = [
+  {
+    id: "1",
+    type: "vote",
+    title: "Infrastructure Investment Act",
+    description: "Senate passes with 68-32 vote",
+    timestamp: new Date().toISOString(),
+    chamber: "senate",
+    impact: "high",
+    source: "Senate.gov",
+  },
+  {
+    id: "2",
+    type: "bill",
+    title: "AI Safety Framework introduced",
+    description: "Bipartisan bill enters committee review",
+    timestamp: new Date().toISOString(),
+    chamber: "house",
+    impact: "medium",
+    source: "GovTrack",
+  },
+];
+
 export function LiveUpdatesFeed() {
-  const [updates, setUpdates] = useState<LiveUpdate[]>([]);
+  const [updates, setUpdates] = useState<LiveUpdate[]>(() => initialUpdates);
   const [isConnected, setIsConnected] = useState(false);
   const [filter, setFilter] = useState<string>("all");
 
   useEffect(() => {
-    const initial: LiveUpdate[] = [
-      {
-        id: "1",
-        type: "vote",
-        title: "Infrastructure Investment Act",
-        description: "Senate passes with 68-32 vote",
-        timestamp: new Date().toISOString(),
-        chamber: "senate",
-        impact: "high",
-        source: "Senate.gov",
-      },
-      {
-        id: "2",
-        type: "bill",
-        title: "AI Safety Framework introduced",
-        description: "Bipartisan bill enters committee review",
-        timestamp: new Date().toISOString(),
-        chamber: "house",
-        impact: "medium",
-        source: "GovTrack",
-      },
-    ];
-
-    setUpdates(initial);
-
     const es = new EventSource("/api/leadership/updates");
 
     es.onopen = () => setIsConnected(true);

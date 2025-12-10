@@ -1,5 +1,11 @@
 import { cache } from "react";
 import { GovernmentLeader, LeaderType, VotingAnalysis } from "@/lib/types";
+import { houseRepresentatives } from "./reps";
+import { senators } from "./senators";
+import { mayors } from "./mayors";
+import { governors } from "./governors";
+import { fetchMemberVotingRecord } from "@/lib/api/congress-voting";
+import { getSenatorBioguideId, getHouseBioguideId } from "./bioguide-mappings";
 
 const baseVotingRecord: VotingAnalysis[] = [
   {
@@ -185,7 +191,7 @@ const mockLeaders: GovernmentLeader[] = [
     recentActivity: [
       {
         title: "Launched Smart City Mobility Pilot",
-        type: "announcement",
+        type: "speech",
         date: "2025-12-02",
         impactScore: 7,
       },
@@ -210,10 +216,95 @@ const mockLeaders: GovernmentLeader[] = [
   },
 ];
 
+const baseMockLeaders = mockLeaders.filter(
+  (leader) => leader.type !== "house" && leader.type !== "senate" && leader.type !== "mayor" && leader.type !== "governor",
+);
+const allLeaders: GovernmentLeader[] = [...baseMockLeaders, ...senators, ...houseRepresentatives, ...mayors, ...governors];
+
+/**
+ * Fetch real voting data for a congressional member
+ * Falls back to mock data if API fails or bioguideId not found
+ */
+async function enrichWithVotingData(leader: GovernmentLeader): Promise<GovernmentLeader> {
+  // Only fetch for senators and representatives
+  if (leader.type !== 'senate' && leader.type !== 'senator' && leader.type !== 'house' && leader.type !== 'representative') {
+    return leader;
+  }
+
+  try {
+    // Get bioguideId
+    let bioguideId: string | null = null;
+    
+    if (leader.type === 'senate' || leader.type === 'senator') {
+      bioguideId = getSenatorBioguideId(leader.state, leader.name);
+    } else if (leader.type === 'house' || leader.type === 'representative') {
+      bioguideId = getHouseBioguideId(leader.state, leader.district || '', leader.name);
+    }
+
+    // If we have a bioguideId, fetch real voting data
+    if (bioguideId && process.env.CONGRESS_API_KEY) {
+      const votingRecord = await fetchMemberVotingRecord(bioguideId);
+      
+      if (votingRecord && votingRecord.length > 0) {
+        return {
+          ...leader,
+          votingRecord,
+        };
+      }
+    }
+  } catch (error) {
+    console.error(`Error enriching voting data for ${leader.name}:`, error);
+  }
+
+  // Fallback to existing or base mock data
+  return leader;
+}
+
 export const fetchLeadershipData = cache(async (type: LeaderType) => {
-  // Placeholder for real API calls (e.g., ProPublica, GovTrack) with ISR
-  const filtered = mockLeaders.filter((leader) => leader.type === type);
+  // Placeholder for real API calls (e.g., Congress.gov, GovTrack) with ISR
+  if (type === "house" || type === "representative") {
+    return houseRepresentatives;
+  }
+
+  if (type === "senate" || type === "senator") {
+    return senators;
+  }
+
+  if (type === "mayor") {
+    return mayors;
+  }
+
+  if (type === "governor") {
+    return governors;
+  }
+
+  const filtered = baseMockLeaders.filter((leader) => leader.type === type);
   return filtered;
 });
 
-export const fetchAllLeaders = cache(async () => mockLeaders);
+export const fetchAllLeaders = cache(async () => allLeaders);
+
+/**
+ * Fetch a sample of leaders with optional real voting data enrichment
+ * @param limit Number of leaders to return
+ * @param enrichVoting Whether to fetch real voting data from Congress.gov API
+ */
+export const fetchLeadersSample = cache(async (limit: number = 50, enrichVoting: boolean = false) => {
+  const sample = allLeaders.slice(0, limit);
+  
+  if (!enrichVoting || !process.env.CONGRESS_API_KEY) {
+    return sample;
+  }
+
+  // Enrich first 10 leaders with real voting data (to avoid rate limits)
+  const enrichedSample = await Promise.all(
+    sample.map(async (leader, idx) => {
+      if (idx < 10) {
+        return enrichWithVotingData(leader);
+      }
+      return leader;
+    })
+  );
+
+  return enrichedSample;
+});

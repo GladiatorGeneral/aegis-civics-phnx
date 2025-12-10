@@ -13,7 +13,7 @@ export function AmericanScoreMobile({ leaderName = "Leader", score = 84 }: Ameri
     <div className="space-y-4 p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+          <div className="p-2 rounded-lg bg-linear-to-br from-blue-500/20 to-purple-500/20">
             <Smartphone className="w-5 h-5 text-blue-400" />
           </div>
           <div>
@@ -48,7 +48,7 @@ export function AmericanScoreMobile({ leaderName = "Leader", score = 84 }: Ameri
           initial={{ width: 0 }}
           animate={{ width: `${score}%` }}
           transition={{ duration: 1 }}
-          className="h-full bg-gradient-to-r from-green-500 via-blue-500 to-purple-500"
+          className="h-full bg-linear-to-r from-green-500 via-blue-500 to-purple-500"
         />
       </div>
 

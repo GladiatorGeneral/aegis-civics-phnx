@@ -1,4 +1,5 @@
 export * from "./leadership";
+export * from "./infrastructure";
 
 // Goal Types
 export type GoalStatus = "on-track" | "at-risk" | "completed" | "upcoming";

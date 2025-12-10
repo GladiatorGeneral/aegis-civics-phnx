@@ -1,4 +1,4 @@
-import { OpenAI } from "openai";
+import OpenAI from "openai";
 import { BillAnalysis } from "@/lib/scoring/american-scale";
 
 export interface BillMetadata {
@@ -133,23 +133,23 @@ OUTPUT FORMAT:
           overall: overallCategory,
           categories: {
             benefit_scope: {
-              score: parsed.benefit_scope?.score ?? 50,
+              score: parsed.benefit_scope?.score ?? 0,
               breakdown: parsed.benefit_scope?.breakdown ?? {
-                populationAffected: 50,
-                incomeBrackets: { low: 50, middle: 50, high: 50 },
-                geographicSpread: 50,
+                populationAffected: 0,
+                incomeBrackets: { low: 0, middle: 0, high: 0 },
+                geographicSpread: 0,
               },
             },
             foreign_impact: {
-              score: parsed.foreign_impact?.score ?? 50,
+              score: parsed.foreign_impact?.score ?? 0,
               breakdown: parsed.foreign_impact?.breakdown ?? {
                 foreignBeneficiaries: [],
-                domesticBenefitRatio: 50,
-                sovereigntyImpact: 50,
+                domesticBenefitRatio: 0,
+                sovereigntyImpact: 0,
               },
             },
             transparency: {
-              score: parsed.transparency?.score ?? 50,
+              score: parsed.transparency?.score ?? 0,
               breakdown: parsed.transparency?.breakdown ?? {
                 earmarksCount: 0,
                 closedDoorProvisions: 0,
@@ -157,7 +157,7 @@ OUTPUT FORMAT:
               },
             },
             long_term_effects: {
-              score: parsed.long_term_effects?.score ?? 50,
+              score: parsed.long_term_effects?.score ?? 0,
               breakdown: parsed.long_term_effects?.breakdown ?? {
                 generationalImpact: 3,
                 sustainability: 3,
@@ -173,7 +173,7 @@ OUTPUT FORMAT:
           confidence: parsed.confidence ?? 80,
         },
       };
-    } catch (error) {
+    } catch {
       return this.fallbackAnalysis(billText, metadata);
     }
   }
@@ -214,19 +214,19 @@ OUTPUT FORMAT:
         overall: overallCategory,
         categories: {
           benefit_scope: {
-            score: 50,
+            score: 0,
             breakdown: {
-              populationAffected: 50,
-              incomeBrackets: { low: 50, middle: 50, high: 50 },
-              geographicSpread: 50,
+              populationAffected: 0,
+              incomeBrackets: { low: 0, middle: 0, high: 0 },
+              geographicSpread: 0,
             },
           },
           foreign_impact: {
-            score: 50,
+            score: 0,
             breakdown: {
               foreignBeneficiaries: [],
-              domesticBenefitRatio: 50,
-              sovereigntyImpact: 50,
+              domesticBenefitRatio: 0,
+              sovereigntyImpact: 0,
             },
           },
           transparency: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertCircle,
@@ -22,10 +22,8 @@ interface GoalTrackerProps {
 
 export function GoalTracker({ goals, title = "Strategic Goals", showFilters = true }: GoalTrackerProps) {
   const [filter, setFilter] = useState<GoalStatus | "all">("all");
-  const [sortedGoals, setSortedGoals] = useState<Goal[]>([]);
-
-  useEffect(() => {
-    const filtered = goals
+  const sortedGoals = useMemo(() => {
+    return goals
       .filter((goal) => filter === "all" || goal.status === filter)
       .sort((a, b) => {
         if (a.priority !== b.priority) return b.priority - a.priority;
@@ -33,7 +31,6 @@ export function GoalTracker({ goals, title = "Strategic Goals", showFilters = tr
           return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
         return a.progress - b.progress;
       });
-    setSortedGoals(filtered);
   }, [goals, filter]);
 
   const overallProgress = goals.length > 0 ? goals.reduce((acc, goal) => acc + goal.progress, 0) / goals.length : 0;
@@ -70,7 +67,7 @@ export function GoalTracker({ goals, title = "Strategic Goals", showFilters = tr
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+            <div className="p-2 rounded-lg bg-linear-to-br from-blue-500/20 to-purple-500/20">
               <Target className="w-6 h-6 text-blue-400" />
             </div>
             <div>
@@ -82,7 +79,7 @@ export function GoalTracker({ goals, title = "Strategic Goals", showFilters = tr
           </div>
 
           <div className="text-right">
-            <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+            <div className="text-3xl font-bold bg-linear-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
               {Math.round(overallProgress)}%
             </div>
             <div className="text-gray-500 text-sm">Overall Progress</div>
@@ -99,7 +96,7 @@ export function GoalTracker({ goals, title = "Strategic Goals", showFilters = tr
               initial={{ width: 0 }}
               animate={{ width: `${overallProgress}%` }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              className="h-full bg-gradient-to-r from-green-500 via-blue-500 to-purple-500"
+              className="h-full bg-linear-to-r from-green-500 via-blue-500 to-purple-500"
             />
           </div>
         </div>

@@ -30,6 +30,7 @@ export interface GovernmentLeader {
   title: string;
   state: string;
   district?: string;
+  office?: string;
   party: PartyAffiliation;
   imageUrl?: string;
   contact?: {
@@ -38,6 +39,7 @@ export interface GovernmentLeader {
     website?: string;
     twitter?: string;
   };
+  committees?: string[];
   metrics?: {
     billsSponsored: number;
     billsPassed: number;

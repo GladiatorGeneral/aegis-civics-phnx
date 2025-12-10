@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { AmericanScoreIndicator } from "@/components/scoring/AmericanScoreIndicator";
@@ -48,14 +49,17 @@ export function LeaderCard({ leader, compact = false }: LeaderCardProps) {
         <div className="flex items-start gap-4">
           <div className="relative">
             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/20">
-              <img
-                src={leader.imageUrl || `/api/placeholder/64/64`}
+              <Image
+                src={leader.imageUrl || "https://placehold.co/64x64/png"}
                 alt={leader.name}
+                width={64}
+                height={64}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div
-              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-br ${partyColors[leader.party]} border-2 border-gray-900`}
+              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-linear-to-br ${partyColors[leader.party]} border-2 border-gray-900`}
             />
           </div>
 
@@ -77,7 +81,13 @@ export function LeaderCard({ leader, compact = false }: LeaderCardProps) {
               </div>
 
               <button type="button" onClick={() => setShowAmericanScore(true)} className="group relative">
-                <AmericanScoreIndicator score={americanScore.category} value={americanScore.score} size="sm" showLabel={false} />
+                <AmericanScoreIndicator
+                  score={americanScore.category}
+                  value={americanScore.score}
+                  size="sm"
+                  showLabel={false}
+                  interactive={false}
+                />
               </button>
             </div>
           </div>
@@ -220,7 +230,7 @@ function calculateLeaderAmericanScore(
   votingRecord: VotingAnalysis[],
 ): { score: number; category: "american" | "neutral" | "unamerican" } {
   if (!votingRecord.length) {
-    return { score: 50, category: "neutral" };
+    return { score: 0, category: "neutral" };
   }
 
   const avgScore = Math.round(

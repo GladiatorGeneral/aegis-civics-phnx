@@ -55,7 +55,7 @@ export function NeuralMetricCard({
           <motion.div
             initial={animateValue ? { opacity: 0, scale: 0.9 } : {}}
             animate={animateValue ? { opacity: 1, scale: 1 } : {}}
-            className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            className="text-3xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
           >
             {`${formatValue(value)}${suffix}`}
           </motion.div>
