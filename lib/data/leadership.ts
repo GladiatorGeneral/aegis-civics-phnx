@@ -6,77 +6,93 @@ import { mayors } from "./mayors";
 import { governors } from "./governors";
 import { fetchMemberVotingRecord } from "@/lib/api/congress-voting";
 import { getSenatorBioguideId, getHouseBioguideId } from "./bioguide-mappings";
+import {
+  generateAmericanScore,
+  generateVotingRecord,
+  generateMetrics,
+  generateNextElection,
+  generateCommittees,
+  generateRecentActivity,
+  generateAIInsights
+} from "@/lib/utils/data-generation";
+
+/**
+ * Enrich a leader with generated realistic data
+ */
+function enrichWithGeneratedData(leader: GovernmentLeader): GovernmentLeader {
+  // Skip if leader already has voting record (real data from API)
+  if (leader.votingRecord && leader.votingRecord.length > 3) {
+    return leader;
+  }
+  
+  // Generate American Score
+  const americanScore = generateAmericanScore(leader.party, leader.state, leader.type);
+  
+  // Generate voting record
+  const votingRecord = generateVotingRecord(leader.party, americanScore);
+  
+  // Generate or enhance metrics
+  const metrics = leader.metrics || generateMetrics(leader.type);
+  
+  // Generate or use existing next election
+  const nextElection = leader.nextElection || generateNextElection(leader.type);
+  
+  // Generate or use existing committees
+  const committees = leader.committees || generateCommittees(leader.type);
+  
+  // Generate or enhance recent activity
+  const recentActivity = leader.recentActivity?.length 
+    ? leader.recentActivity 
+    : generateRecentActivity();
+  
+  // Generate or enhance AI insights
+  const aiInsights = leader.aiInsights || generateAIInsights(leader.type, leader.party);
+  
+  return {
+    ...leader,
+    votingRecord,
+    metrics,
+    nextElection,
+    committees,
+    recentActivity,
+    aiInsights
+  };
+}
 
 const baseVotingRecord: VotingAnalysis[] = [
   {
-    billId: "hr-123",
-    billTitle: "Infrastructure Investment Act",
+    billId: "H.R. 1234",
+    billTitle: "Infrastructure Investment and Jobs Act",
     vote: "yea",
-    americanScore: { overall: 78, breakdown: { benefitScope: 82, foreignImpact: 65, transparency: 55 } },
     impact: "high",
+    americanScore: {
+      overall: 85,
+      breakdown: {
+        benefitScope: 92,
+        foreignImpact: 90,
+        transparency: 78,
+      },
+    },
   },
   {
-    billId: "sb-42",
-    billTitle: "Cybersecurity Modernization",
+    billId: "S. 2024",
+    billTitle: "Climate Action Now Act",
     vote: "yea",
-    americanScore: { overall: 88, breakdown: { benefitScope: 75, foreignImpact: 92, transparency: 68 } },
-    impact: "medium",
-  },
-  {
-    billId: "hr-200",
-    billTitle: "Emergency Relief Package",
-    vote: "nay",
-    americanScore: { overall: 42, breakdown: { benefitScope: 48, foreignImpact: 35, transparency: 28 } },
     impact: "high",
+    americanScore: {
+      overall: 78,
+      breakdown: {
+        benefitScope: 88,
+        foreignImpact: 85,
+        transparency: 65,
+      },
+    },
   },
 ];
 
 const mockLeaders: GovernmentLeader[] = [
   {
-    id: "s-001",
-    type: "senate",
-    name: "Alexandra Cortez",
-    title: "Senator for New York",
-    state: "NY",
-    party: "Democrat",
-    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80",
-    contact: {
-      phone: "202-224-1234",
-      email: "alexandra.cortez@senate.gov",
-      website: "https://senate.gov/alexandra-cortez",
-      twitter: "@sen_cortez",
-    },
-    metrics: {
-      billsSponsored: 24,
-      billsPassed: 6,
-      voteAttendance: 97,
-      bipartisanshipScore: 8.4,
-    },
-    recentActivity: [
-      {
-        title: "Voted Yea on AI Safety Framework",
-        type: "vote",
-        date: "2025-12-01",
-        impactScore: 8,
-      },
-      {
-        title: "Sponsored Climate Resilience Bill",
-        type: "bill",
-        date: "2025-11-20",
-        impactScore: 7,
-      },
-    ],
-    nextElection: "2028",
-    aiInsights: {
-      priorities: ["AI regulation", "Climate resilience", "Digital privacy"],
-      prediction: "competitive",
-      keyRelationships: ["Sen. Lee", "Sen. Smith", "Gov. Patel"],
-      priority: 8,
-    },
-    votingRecord: baseVotingRecord,
-  },
-  {
-    id: "h-014",
+    id: "h-012",
     type: "house",
     name: "Marcus Nguyen",
     title: "Representative for CA-12",
@@ -219,7 +235,11 @@ const mockLeaders: GovernmentLeader[] = [
 const baseMockLeaders = mockLeaders.filter(
   (leader) => leader.type !== "house" && leader.type !== "senate" && leader.type !== "mayor" && leader.type !== "governor",
 );
-const allLeaders: GovernmentLeader[] = [...baseMockLeaders, ...senators, ...houseRepresentatives, ...mayors, ...governors];
+// Combine all leaders and enrich with generated data
+const allLeadersRaw: GovernmentLeader[] = [...senators, ...houseRepresentatives, ...governors, ...mayors];
+console.log('allLeadersRaw length:', allLeadersRaw.length);
+const allLeaders: GovernmentLeader[] = allLeadersRaw.map(enrichWithGeneratedData);
+console.log('allLeaders length after enrichment:', allLeaders.length);
 
 /**
  * Fetch real voting data for a congressional member

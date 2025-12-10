@@ -10,6 +10,12 @@ interface LeaderCategoryDashboardProps {
 }
 
 export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProps) {
+  // Add safety check for undefined leaders
+  if (!leaders || !Array.isArray(leaders)) {
+    console.error('LeaderCategoryDashboard received invalid leaders:', leaders);
+    return <div className="text-red-500">Error: Invalid leaders data</div>;
+  }
+  
   // Filter leaders by type
   const senators = leaders.filter((l: GovernmentLeader) => l.type === "senate");
   const representatives = leaders.filter((l: GovernmentLeader) => l.type === "house");
