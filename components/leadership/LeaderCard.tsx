@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { AmericanScoreIndicator } from "@/components/scoring/AmericanScoreIndicator";
@@ -47,20 +46,19 @@ export function LeaderCard({ leader, compact = false }: LeaderCardProps) {
     <NeuralGlassPanel hoverable intensity="medium">
       <div className="space-y-4">
         <div className="flex items-start gap-4">
+          {/* Leadership Stats Badge - Replacing Avatar */}
           <div className="relative">
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/20">
-              <Image
-                src={leader.imageUrl || "https://placehold.co/64x64/png"}
-                alt={leader.name}
-                width={64}
-                height={64}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div className="w-16 h-16 rounded-xl border-2 border-white/20 bg-linear-to-br from-slate-800 to-slate-900 flex flex-col items-center justify-center">
+              <div className="text-2xl font-bold text-white">{americanScore.score}</div>
+              <div className="text-[9px] text-gray-400 uppercase tracking-wide">Score</div>
             </div>
             <div
-              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-linear-to-br ${partyColors[leader.party]} border-2 border-gray-900`}
-            />
+              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-linear-to-br ${partyColors[leader.party]} border-2 border-gray-900 flex items-center justify-center`}
+            >
+              <span className="text-white text-[10px] font-bold">
+                {leader.party === "Democrat" ? "D" : leader.party === "Republican" ? "R" : "I"}
+              </span>
+            </div>
           </div>
 
           <div className="flex-1 min-w-0">
