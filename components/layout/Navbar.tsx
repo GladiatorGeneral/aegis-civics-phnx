@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Users, DollarSign, BarChart3 } from "lucide-react";
+import { Home, Users, DollarSign, BarChart3, Sparkles } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -11,6 +11,7 @@ export function Navbar() {
     { href: "/", label: "Home", icon: Home },
     { href: "/dashboard", label: "Leaders", icon: Users },
     { href: "/finance", label: "Finance", icon: DollarSign },
+    { href: "/renewal", label: "Project Illumio", icon: Sparkles },
   ];
 
   return (
