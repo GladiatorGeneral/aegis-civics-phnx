@@ -47,10 +47,12 @@ export {
  *    - Get key: https://api.census.gov/data/key_signup.html
  *    - Add to .env: CENSUS_API_KEY=your_key_here
  * 
- * 7. DeepSeek (Low-cost AI inference)
+ * 7. DeepSeek (Low-cost AI inference) ✅
  *    - Get key: https://platform.deepseek.com/
  *    - Add to .env: DEEPSEEK_API_KEY=your_key_here
+ *    - Optional fallback: DEEPSEEK1_API_KEY=your_alternate_key
  *    - Cost: ~$0.14/million tokens (90%+ cheaper than OpenAI)
+ *    - Supports multiple keys with automatic fallback
  * 
  * 8. GovTrack - No API key required
  * 9. USAspending.gov - No API key required

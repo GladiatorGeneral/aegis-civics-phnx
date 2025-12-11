@@ -7,9 +7,13 @@
  * - Batch processing of legislation
  * - Infrastructure impact assessment
  * - Cost: ~$0.14 per million tokens (vs OpenAI $2.50)
+ * 
+ * Supports multiple API keys with automatic fallback:
+ * - DEEPSEEK_API_KEY (primary)
+ * - DEEPSEEK1_API_KEY (fallback)
  */
 
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK1_API_KEY || '';
 const BASE_URL = 'https://api.deepseek.com/v1';
 
 interface DeepSeekMessage {
