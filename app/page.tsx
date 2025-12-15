@@ -11,10 +11,10 @@ export default function Home() {
             <button className="w-full py-4 px-6 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white text-xl font-semibold shadow transition">Current Numbers</button>
           </Link>
           <Link href="/illumio" className="block w-full">
-            <button className="w-full py-4 px-6 rounded-lg bg-blue-700 hover:bg-blue-600 text-white text-xl font-semibold shadow transition">Project Illumio</button>
+            <button className="w-full py-4 px-6 rounded-lg bg-blue-700 hover:bg-blue-600 text-white text-xl font-semibold shadow transition">Project Phnx</button>
           </Link>
           <Link href="/future-numbers" className="block w-full">
-            <button className="w-full py-4 px-6 rounded-lg bg-purple-700 hover:bg-purple-600 text-white text-xl font-semibold shadow transition">Illumio Numbers</button>
+            <button className="w-full py-4 px-6 rounded-lg bg-purple-700 hover:bg-purple-600 text-white text-xl font-semibold shadow transition">Phnx Numbers</button>
           </Link>
         </div>
       </div>

@@ -19,25 +19,10 @@ export default function IllumioCorePage() {
           </div>
         </div>
 
-        {/* AI Information */}
-        <NeuralGlassPanel className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-4">AI Capabilities</h2>
-          <div className="grid md:grid-cols-2 gap-6 text-cyan-50">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Knowledge Cutoff</h3>
-              <p className="text-sm">July 2024 (with web search capability when enabled)</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Context Window</h3>
-              <p className="text-sm">128,000 tokens (~96,000 words)</p>
-              <p className="text-xs mt-1 text-cyan-200">Enough for entire books, complex codebases, and lengthy conversations</p>
-            </div>
-          </div>
-        </NeuralGlassPanel>
 
         {/* Project Overview */}
         <NeuralGlassPanel className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-4">Project Illumio: Executive Summary</h2>
+          <h2 className="text-2xl font-bold text-cyan-300 mb-4">Project Phnx: Executive Summary</h2>
           <div className="space-y-4 text-cyan-50">
             <p>
               A comprehensive national renewal initiative proposing a supra-governmental coordination structure 
@@ -1367,7 +1352,7 @@ export default function IllumioCorePage() {
             </p>
             <div className="max-w-4xl mx-auto">
               <p className="mb-4">
-                Project Illumio represents a fundamental reimagining of governance: a networked, transparent, 
+                Project Phnx represents a fundamental reimagining of governance: a networked, transparent, 
                 and accountable system that coordinates the collective power of federal, state, and municipal 
                 governments with private sector innovation and civic engagement.
               </p>
@@ -1385,7 +1370,7 @@ export default function IllumioCorePage() {
 
         {/* Footer */}
         <div className="text-center text-cyan-300 text-sm mt-12">
-          <p>Project Illumio: A Whole-of-Nation Framework for Systemic Renewal</p>
+          <p>Project Phnx: A Whole-of-Nation Framework for Systemic Renewal</p>
           <p className="text-cyan-400 mt-2">Total Estimated Scope: $850 Billion over 12 Years (May 2026-2037)</p>
         </div>
       </div>

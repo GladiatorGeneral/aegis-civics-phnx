@@ -1,6 +1,6 @@
 /**
  * Systemic Renewal Directorates (SRD) Data
- * Project Illumio - 12 Integrated Transformation Initiatives
+ * Project Phnx - 12 Integrated Transformation Initiatives
  */
 
 export interface SRDMetric {

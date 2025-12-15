@@ -47,9 +47,7 @@ export function SystemicRenewalDashboard() {
         </ol>
       </div>
 
-      <div className="text-center text-gray-500 text-sm pt-6">
-        &copy; {new Date().getFullYear()} Aegis Civics. All rights reserved.
-      </div>
+      {/* Footer removed to avoid duplication; now handled globally */}
     </div>
   );
 }

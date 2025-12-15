@@ -580,7 +580,7 @@ export default function FutureNumbersPage() {
 
         {/* Footer */}
         <div className="text-center text-cyan-300 text-sm mt-12">
-          <p>Project Illumio: Future Numbers Analysis</p>
+          <p>Project Phnx: Future Numbers Analysis</p>
           <p className="text-cyan-400 mt-2">Based on comprehensive impact modeling with Day 1 optimal implementation assumptions</p>
         </div>
       </div>
