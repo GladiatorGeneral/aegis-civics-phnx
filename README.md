@@ -76,6 +76,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
+## 🌐 Live Website
+
+- [Production Site (Vercel)](https://aegis-civics-phnx.vercel.app/)
+- [GitHub Repository](https://github.com/GladiatorGeneral/aegis-civics-phnx)
+
 ### Environment Variables
 
 Create a `.env.local` file with the following keys:
