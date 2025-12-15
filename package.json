@@ -6,7 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:security": "node scripts/audit/usamind-audit-suite.ts --security",
+    "audit:performance": "node scripts/audit/usamind-audit-suite.ts --performance",
+    "audit:accessibility": "node scripts/audit/usamind-audit-suite.ts --accessibility",
+    "audit:seo": "node scripts/audit/usamind-audit-suite.ts --seo",
+    "audit:code": "node scripts/audit/usamind-audit-suite.ts --code-quality",
+    "audit:bundle": "node scripts/audit/usamind-audit-suite.ts --bundle",
+    "audit:api": "node scripts/audit/usamind-audit-suite.ts --api-security",
+    "audit:compliance": "node scripts/audit/usamind-audit-suite.ts --compliance",
+    "audit:realtime": "node scripts/audit/usamind-audit-suite.ts --realtime",
+    "audit:ai": "node scripts/audit/usamind-audit-suite.ts --ai-model",
+    "audit:full": "node scripts/audit/usamind-audit-suite.ts --full",
+    "audit:ci": "node scripts/audit/usamind-audit-suite.ts --ci",
+    "audit:fix": "node scripts/audit/usamind-audit-suite.ts --fix",
+    "compliance:certificate": "node scripts/audit/generate-certificate.ts",
+    "compliance:report": "node scripts/audit/generate-report.ts"
   },
   "dependencies": {
     "next": "16.0.8",
