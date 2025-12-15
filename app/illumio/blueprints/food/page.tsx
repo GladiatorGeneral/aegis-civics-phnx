@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 'use client';
 
 import React from 'react';
@@ -285,4 +286,149 @@ export default function FoodSecurityPage() {
       </div>
     </div>
   );
+=======
+import React from "react";
+import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
+
+export default function FoodSecurityPage() {
+	return (
+		<div className="min-h-screen bg-linear-to-br from-slate-900 via-indigo-900 to-slate-800 p-4 md:p-8">
+			<div className="max-w-4xl mx-auto py-8">
+				<div className="mb-8 text-center">
+					<h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-emerald-300 to-cyan-400 bg-clip-text text-transparent mb-3">Food Security: Blueprint</h1>
+					<p className="text-slate-200 max-w-2xl mx-auto">A resilient food system ensures affordable, healthy, and locally-sourced food for every community through distributed production, optimized logistics, and demand-side support.</p>
+				</div>
+
+				<NeuralGlassPanel className="mb-6">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-3">Overview</h2>
+					<p className="text-cyan-100">Food security combines production, distribution, affordability, and nutrition. This blueprint focuses on decentralized production, waste reduction, equitable access, and market mechanisms that reward resilience.</p>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Core Components</h3>
+					<ul className="list-disc list-inside text-cyan-100">
+						<li><b>Community Food Resilience Hubs:</b> Aggregation, cold-chain, last-mile distribution, and micro-processing.</li>
+						<li><b>Urban & Vertical Agriculture Nodes:</b> Local, high-yield production near demand centers.</li>
+						<li><b>Food Rail & Surplus Markets:</b> Real-time redistribution apps to reduce waste and discount surplus goods.</li>
+						<li><b>Farm-to-Plate Procurement:</b> Long-term contracts connecting small farmers to institutional buyers.</li>
+						<li><b>Nutrition & Access Programs:</b> Subsidies, sliding-scale markets, and targeted vouchers for vulnerable households.</li>
+					</ul>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Logistics & Technology</h3>
+					<p className="text-cyan-100">Modern logistics—route optimization, cold-chain telemetry, and shared micro-fulfillment—reduce costs and loss. Open APIs connect producers, hubs, transit, and retailers for near-real-time visibility.</p>
+					<ul className="list-disc list-inside text-cyan-100 mt-2">
+						<li><b>Telemetry:</b> Temperature & inventory tracking across hubs.</li>
+						<li><b>Route optimization:</b> Lower fuel and time costs using smart routing.</li>
+						<li><b>Demand forecasting:</b> Shorten supply chains and match local crop cycles to demand.</li>
+					</ul>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Affordability & Market Design</h3>
+					<p className="text-cyan-100">Combine subsidies, dynamic pricing, and community purchasing to lower costs while preserving farmer incomes.</p>
+					<ul className="list-disc list-inside text-cyan-100 mt-2">
+						<li><b>Community Buying Pools:</b> Bulk procurement for schools, hospitals, and markets.</li>
+						<li><b>Dynamic Vouchers:</b> Targeted support that shifts to healthy, local foods.</li>
+						<li><b>Incentives for regenerative practices:</b> Premium payments for carbon-sequestering agriculture.</li>
+					</ul>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Nutrition, Equity & Community Programs</h3>
+					<p className="text-cyan-100">Nutrition education, school meals integrated with local procurement, and mobile markets ensure equitable access.</p>
+					<ul className="list-disc list-inside text-cyan-100 mt-2">
+						<li>School-to-Farm programs and curriculum-aligned gardens.</li>
+						<li>Mobile markets in food deserts with subsidized pricing.</li>
+						<li>Nutrition mentoring & community kitchens to build cooking skills and reduce processed-food dependency.</li>
+					</ul>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Implementation Roadmap</h3>
+					<ol className="list-decimal list-inside text-cyan-100">
+						<li>Pilot Community Food Hubs in 10 regions (Year 1).</li>
+						<li>Scale urban agriculture nodes and establish Food Rail in 3 metro regions (Years 2-3).</li>
+						<li>Integrate school procurement and SNAP enhancements (Years 3-5).</li>
+					</ol>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel>
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Key Metrics</h3>
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-cyan-300">-25%</div>
+							<div className="text-xs text-cyan-100">Food Waste Reduction</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-green-300">20%</div>
+							<div className="text-xs text-cyan-100">Local Produce Share</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-amber-300">$184</div>
+							<div className="text-xs text-cyan-100">Avg Monthly Household Savings</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-pink-300">150</div>
+							<div className="text-xs text-cyan-100">Hubs Deployed (target)</div>
+						</div>
+					</div>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-8">
+					<h2 className="text-2xl font-bold text-emerald-300 mb-4">Integrated Food Security Architecture: A Citizen's Guide to the 12 SRDs</h2>
+
+					<p className="text-cyan-100 mb-3"><b>Core Thesis:</b> Food security under Illumio transforms from a vulnerable supply chain into a resilient, hyper-local, nutrition-focused ecosystem. The 12 SRDs rebuild the relationship between land, food, and community, ensuring every citizen has consistent access to affordable, nutritious food.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">I. THE PRODUCTION REVOLUTION: Localized, Resilient, and Efficient</h3>
+					<p className="text-cyan-100"><b>Primary SRD Engine:</b> SRD 4 (Food Security) + SRD 11 (Energy)</p>
+
+					<p className="text-cyan-100 mt-2">The <b>Community Food Resilience Hub</b> network creates a distributed production model. Each hub combines:</p>
+					<ul className="list-decimal list-inside text-cyan-100 mb-3">
+						<li><b>Vertical/Aquaponic Farming:</b> Year-round production of leafy greens and herbs, powered by community solar microgrids (SRD 11).</li>
+						<li><b>Food Processing Kitchen:</b> Canning, pickling, and preparing "ugly produce" into shelf-stable goods.</li>
+						<li><b>Distribution Center:</b> For subsidized CSA boxes and commercial sales.</li>
+					</ul>
+
+					<p className="text-cyan-100">SRD 11's renewable energy infrastructure (community solar, green hydrogen hubs) lowers indoor farming energy costs and enables refrigerated electric transport.</p>
+
+					<p className="text-cyan-100 mt-2"><b>Impact:</b> Hyper-local produce can be 25-40% cheaper, is nutritionally superior, and provides year-round security against extreme weather.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">II. THE DISTRIBUTION REVOLUTION: Eliminating Waste, Optimizing Access</h3>
+					<p className="text-cyan-100"><b>Primary SRD Engine:</b> SRD 4 + SRD 1 (Digital Equity) + SRD 7 (Infrastructure)</p>
+
+					<p className="text-cyan-100 mt-2">The <b>National Food Logistics Grid (Food Rail)</b> is an AI-powered platform that treats excess food as a liquid asset to be routed, not waste to be landfilled. Features include real-time matching, dynamic routing, and shared refrigerated electric vehicles.</p>
+
+					<p className="text-cyan-100 mt-2"><b>Impact:</b> Last-Chance Market discounts (70–90%), universal access via nearby hubs or free delivery, and a 40% reduction in food waste with environmental and local food-security benefits.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">III. THE PURCHASING POWER REVOLUTION: Making Nutrition Affordable</h3>
+					<p className="text-cyan-100"><b>Primary SRD Engine:</b> SRD 8 (Wage/Housing) + SRD 3 (Healthcare)</p>
+
+					<p className="text-cyan-100 mt-2">Affordability is delivered by two complementary systems: the Earned Income Accelerator (SRD 8) raising disposable income, and Prescribed Nutrition Programs (SRD 3) issuing targeted credits for medically recommended foods.</p>
+
+					<p className="text-cyan-100 mt-2"><b>Impact:</b> More discretionary income and subsidized access to nutritious food cut healthcare costs and improve long-term outcomes; a family of four could save $2,000+ annually on healthcare by shifting to whole-food diets.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">IV. THE COMPOUNDING BENEFITS: The Full System at Work</h3>
+					<ul className="list-disc list-inside text-cyan-100">
+						<li><b>Education & Workforce (SRD 2):</b> Hubs as vocational centers mint Skill Coins for urban farming and logistics.</li>
+						<li><b>Fiscal Responsibility (SRD 9):</b> Blockchain tracking eliminates fraud and makes subsidies transparent.</li>
+						<li><b>Civic Engagement (SRD 12):</b> Citizens' Assemblies govern local food policy, increasing ownership and cultural relevance.</li>
+						<li><b>Adolescent Development (SRD 6):</b> Youth programs teach gardening and cooking, improving long-term health.</li>
+					</ul>
+
+					<h4 className="text-md font-semibold text-cyan-200 mt-3">Citizen's Food Dashboard (Day in the Life)</h4>
+					<ul className="list-disc list-inside text-cyan-100">
+						<li>Personalized Food Budget: shows weekly spend and savings from Food Hub purchases.</li>
+						<li>Local Harvest Alerts: harvest flash discounts from community vertical farms.</li>
+						<li>Food Security Prescription tracker: shows credits used for medically-recommended items.</li>
+						<li>Community Food Resilience Score: aggregate measure of production, waste reduction, and access.</li>
+					</ul>
+
+					<p className="text-cyan-100 mt-3 font-semibold">Conclusion: From Scarcity Mindset to Abundance Ecology — the 12 SRDs replace fragile long supply chains with a transparent, participatory, and resilient local ecosystem where citizens are participant-shareholders in their food system.</p>
+				</NeuralGlassPanel>
+			</div>
+		</div>
+	);
+>>>>>>> Stashed changes
 }

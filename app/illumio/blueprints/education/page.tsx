@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 
 export default function EducationSecurityPage() {
@@ -416,4 +417,286 @@ EDGE EXPANSION:
       </div>
     </div>
   );
+=======
+import React from "react";
+import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
+import { SocialMetricsModal } from "@/components/ui/SocialMetricsModal";
+import { SocialNeuroDiagram } from "@/components/ui/SocialNeuroDiagram";
+import { SocialConnectionEngineDiagram } from "@/components/ui/SocialConnectionEngineDiagram";
+import { MetricBadge } from "@/components/ui/MetricBadge";
+
+export default function EducationSecurityPage() {
+	return (
+		<div className="min-h-screen bg-linear-to-br from-blue-900 via-cyan-900 to-slate-900 p-0 md:p-8">
+			<div className="max-w-4xl mx-auto py-8">
+				<div className="mb-12 text-center">
+					<h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 drop-shadow-lg">
+						Education Security: Blueprint
+					</h1>
+					<p className="text-cyan-200 text-lg max-w-2xl mx-auto">
+						This page outlines the strategy and blueprint for transforming education and workforce development as a foundation for national renewal.
+					</p>
+					<div className="mt-6">
+						<span className="block text-lg font-bold text-emerald-400">Cognitive Technology That Connects Minds, Not Just Screens</span>
+						<div className="mt-2 text-cyan-300 text-sm">
+							<div>&quot;Building Smarter Brains AND Stronger Communities&quot;</div>
+							<div>&quot;Where AI Enhances Human Connection, Not Replaces It&quot;</div>
+							<div>&quot;Social Learning, Digitally Enhanced&quot;</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Social Connection Architecture Section */}
+				<NeuralGlassPanel className="mb-12">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-4">CRITICAL INTEGRATION: Social Connection Architecture</h2>
+					<p className="text-cyan-100 mb-4">PHNXForge is the only neuro-AI platform that measures and optimizes both cognitive development AND social connection—ensuring students become brilliant thinkers AND collaborative leaders.</p>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-3">Technical Architecture Additions</h3>
+						<p className="text-cyan-200 text-sm mb-3">A compact, explainable topology that connects the central social-connection engine with collaborative-learning, physical-integration, emotional-intelligence, and balance-monitoring systems. The diagram below shows primary data flows, control signals, and where human-in-the-loop interventions occur.</p>
+							<div className="flex justify-center">
+								<SocialConnectionEngineDiagram />
+							</div>
+						<div className="mt-3 text-sm text-cyan-100">
+							<strong>Legend:</strong>
+							<ul className="list-inside list-disc ml-4 mt-2">
+								<li><b>Teal box:</b> Core engine — policy, orchestration, and analytics.</li>
+								<li><b>Blue/Green/Pink/Yellow boxes:</b> Domain modules for collaborative learning, physical tools, social-emotional systems, and balance/wellness monitoring.</li>
+								<li><b>Arrows:</b> Primary data/control flow; human-in-the-loop interventions occur at module boundaries.</li>
+							</ul>
+						</div>
+					</div>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-2">Social-Cognitive Integration</h3>
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div className="flex items-center justify-center">
+								<SocialNeuroDiagram />
+							</div>
+							<div>
+								<div className="text-xs bg-slate-900/80 rounded p-2 overflow-x-auto text-cyan-200 whitespace-pre-line">
+{`
+class SocialNeuroLearning {
+	async designSociallyConnectedLesson(concept, grade) {
+		return {
+			individualCognitive: {
+				neuralActivation: await this.createMultisensoryStimuli(concept),
+				personalizedPractice: await this.generateAdaptiveExercises(concept)
+			},
+			socialCognition: {
+				peerTeaching: await this.createPeerExplanationActivities(concept),
+				collaborativeProblemSolving: await this.designGroupChallenges(concept),
+				socialEmotionalLearning: await this.integrateEmpathyComponents(concept)
+			},
+			physicalIntegration: {
+				handsOnActivities: await this.designPhysicalManipulatives(concept),
+				classroomMovement: await this.createKinestheticLearning(concept),
+				realWorldApplication: await this.connectToCommunityProjects(concept)
+			}
+		};
+	}
+}
+`}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-2">Implementation Strategy: Social Foundation</h3>
+						<ul className="list-disc list-inside space-y-2 text-cyan-100">
+							<li><b>Phase 1 (Months 1-6):</b> Collaborative AI tools, screen time balancing, teacher-led social skill templates</li>
+							<li><b>Phase 2 (Months 7-18):</b> Community neural networks, cross-classroom projects, mentor video sessions, parent/family portals</li>
+							<li><b>Phase 3 (Months 19-36):</b> Global partnerships, community problem-solving, social impact initiatives</li>
+						</ul>
+					</div>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-2">Social Metrics Integration</h3>
+						<SocialMetricsModal />
+					</div>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-2">Cost Structure Update</h3>
+						<ul className="list-disc list-inside space-y-2 text-cyan-100">
+							<li><b>Social Technology:</b> $15-25/student (collaborative tools, video systems)</li>
+							<li><b>Teacher Training:</b> $10-15/student (social-emotional learning integration)</li>
+							<li><b>Physical Materials:</b> $8-12/student (hands-on manipulatives, group kits)</li>
+							<li><b>New Total:</b> $513-$772/student (6-7% increase for social integration)</li>
+						</ul>
+					</div>
+					<div className="mb-4">
+						<h3 className="text-lg font-bold text-emerald-400 mb-2">Competitive Advantage & Brand Promise</h3>
+						<ul className="list-disc list-inside space-y-2 text-cyan-100">
+							<li>Against Traditional EdTech: &quot;They create isolated screen time. We create <b>connected learning experiences</b> that blend digital cognition with human collaboration.&quot;</li>
+							<li>Against AI Tutors: &quot;Single AI models create solitary learning. Our <b>social AI collective</b> facilitates human connection and collaborative intelligence.&quot;</li>
+							<li className="mt-2"><b>Brand Promise:</b> &quot;PHNXForge doesn&apos;t just build smarter students - it builds more connected humans. We prove that technology and social development aren&apos;t competing goals, but complementary forces that, when properly balanced, create the most capable and compassionate future leaders.&quot;</li>
+						</ul>
+					</div>
+					<div className="mb-2">
+						<span className="block text-cyan-200 text-sm font-bold">IMMEDIATE ACTION: Add social connection metrics to Phase 1 deliverables and adjust teacher training to include social-emotional learning integration from day one.</span>
+					</div>
+				</NeuralGlassPanel>
+
+				{/* Educational Impact Section */}
+				<NeuralGlassPanel className="mb-12">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-4">The Imperative: Education & Workforce Development</h2>
+					<p className="text-cyan-100 mb-4">Education is the engine of opportunity, innovation, and social mobility. Yet, persistent inequities, outdated curricula, and workforce misalignment threaten America’s future competitiveness. A comprehensive blueprint is needed to ensure every learner—from early childhood to adult upskilling—can thrive in a rapidly changing world.</p>
+					<div className="overflow-x-auto flex justify-center mb-8">
+						<div className="bg-slate-900/60 border-l-4 border-cyan-400 rounded-lg p-6 inline-block min-w-[340px]">
+							<div className="flex flex-col items-center">
+								<div className="rounded-lg bg-blue-800/80 px-4 py-2 text-cyan-100 font-bold mb-2 shadow">Education Pipeline</div>
+								<div className="flex flex-col items-center">
+									<span className="text-cyan-400 font-semibold mb-2">↓</span>
+									<div className="flex flex-col md:flex-row gap-4 mb-2">
+										<div className="rounded bg-cyan-900/60 px-3 py-2 text-cyan-100 text-xs w-48 shadow">Early Childhood Preparedness</div>
+										<div className="rounded bg-cyan-900/60 px-3 py-2 text-cyan-100 text-xs w-48 shadow">K-12 Student Success</div>
+										<div className="rounded bg-cyan-900/60 px-3 py-2 text-cyan-100 text-xs w-48 shadow">Higher Education Access</div>
+									</div>
+									<span className="text-cyan-400 font-semibold mb-2">↓</span>
+									<div className="flex flex-col md:flex-row gap-4 mb-2">
+										<div className="rounded bg-emerald-900/60 px-3 py-2 text-emerald-100 text-xs w-48 shadow">Adult Upskilling</div>
+										<div className="rounded bg-emerald-900/60 px-3 py-2 text-emerald-100 text-xs w-48 shadow">STEM & Digital Literacy</div>
+										<div className="rounded bg-emerald-900/60 px-3 py-2 text-emerald-100 text-xs w-48 shadow">Community College Pathways</div>
+									</div>
+									<span className="text-cyan-400 font-semibold mb-2">↓</span>
+									<div className="flex flex-col md:flex-row gap-4 mb-2">
+										<div className="rounded bg-purple-900/60 px-3 py-2 text-purple-100 text-xs w-48 shadow">Workforce Integration</div>
+									</div>
+									<span className="text-cyan-400 font-semibold mb-2">↓</span>
+									<div className="flex flex-col md:flex-row gap-4">
+										<div className="rounded bg-pink-900/60 px-3 py-2 text-pink-100 text-xs w-48 shadow">Economic Mobility</div>
+										<div className="rounded bg-pink-900/60 px-3 py-2 text-pink-100 text-xs w-48 shadow">Innovation & Productivity</div>
+										<div className="rounded bg-pink-900/60 px-3 py-2 text-pink-100 text-xs w-48 shadow">National Competitiveness</div>
+									</div>
+								</div>
+								<div className="mt-4 flex flex-col items-center">
+									<span className="text-green-400 font-semibold mb-2">↑</span>
+									<div className="rounded bg-green-900/60 px-3 py-2 text-green-100 text-xs w-64 shadow">Comprehensive Education Reform<br/><span className="font-normal">Drives Societal Renewal</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<h3 className="text-xl font-bold text-emerald-400 mt-8 mb-6">📚 Key Outcomes & Metrics</h3>
+					<div className="grid grid-cols-2 gap-4 mb-6">
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">65M</span>
+							<span className="text-cyan-100 text-sm">K-12 Students Improved</span>
+							<MetricBadge label="K-12" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">60.8M</span>
+							<span className="text-cyan-100 text-sm">Higher Education Advanced</span>
+							<MetricBadge label="Higher" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">52.6M</span>
+							<span className="text-cyan-100 text-sm">Adult Education Upskilled</span>
+							<MetricBadge label="Adult" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">9.2M</span>
+							<span className="text-cyan-100 text-sm">Early Childhood Prepared</span>
+							<MetricBadge label="Early" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">1.8M</span>
+							<span className="text-cyan-100 text-sm">Prevented Dropouts</span>
+							<MetricBadge label="No Out" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">14.6M</span>
+							<span className="text-cyan-100 text-sm">Community College Students</span>
+							<MetricBadge label="CC" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">2.4M</span>
+							<span className="text-cyan-100 text-sm">STEM Graduates Added</span>
+							<MetricBadge label="STEM" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center">
+							<span className="text-3xl font-bold text-cyan-300">18M</span>
+							<span className="text-cyan-100 text-sm">Adults Literacy-Improved</span>
+							<MetricBadge label="Lit" />
+						</div>
+						<div className="bg-cyan-900/40 rounded-lg p-4 flex flex-col items-center col-span-2">
+							<span className="text-3xl font-bold text-green-400">$5.6T</span>
+							<span className="text-cyan-100 text-sm">GDP Contribution</span>
+							<MetricBadge label="GDP" variant="rect" rectWidth={120} rectHeight={60} />
+						</div>
+					</div>
+				</NeuralGlassPanel>
+
+				{/* Workforce Integration Section */}
+				<NeuralGlassPanel className="mb-12">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-4">Workforce Integration & Economic Impact</h2>
+					<p className="text-cyan-100 mb-4">Education reform is inseparable from workforce transformation. By aligning curricula with labor market needs, supporting re-entry and upskilling, and integrating immigrants, the blueprint ensures a productive, adaptable citizenry.</p>
+					<ul className="list-disc list-inside space-y-2 text-cyan-100 mb-6">
+						<li><b>New Jobs Created:</b> 26.4 million</li>
+						<li><b>Education → Employment Pipeline:</b> 23.6 million</li>
+						<li><b>Workforce Re-Entry (Recovery):</b> 12.9 million</li>
+						<li><b>Labor Force Participation Increase:</b> 12.5 million</li>
+						<li><b>Immigration Integration:</b> 10.68 million</li>
+					</ul>
+					<p className="text-cyan-100 text-xs mt-4">Labor Force Transformation: 2024: 62.8% → 2037: 74.3% (+11.5 percentage points)</p>
+				</NeuralGlassPanel>
+
+				{/* Implementation Pathways Section */}
+				<section className="mt-16">
+					<h2 className="text-2xl font-bold text-emerald-400 mb-4">Implementation Pathways</h2>
+					<h3 className="text-xl font-bold text-cyan-300 mb-2">🎓 Five Pillars of Education Security</h3>
+					<div className="overflow-x-auto mb-6">
+						<table className="min-w-full text-xs md:text-sm text-cyan-100 border border-cyan-700 rounded-lg">
+							<thead className="bg-cyan-900/80">
+								<tr>
+									<th className="px-3 py-2 font-bold">Pillar</th>
+									<th className="px-3 py-2 font-bold">Key Actions</th>
+									<th className="px-3 py-2 font-bold">Lead Agency</th>
+									<th className="px-3 py-2 font-bold">Metrics</th>
+								</tr>
+							</thead>
+							<tbody className="bg-slate-900/60">
+								<tr className="border-b border-cyan-800">
+									<td className="px-3 py-2 font-semibold">1. Universal Access</td>
+									<td className="px-3 py-2">Pre-K to adult education, digital equity, rural outreach</td>
+									<td className="px-3 py-2">Dept. of Education, FCC</td>
+									<td className="px-3 py-2">% of population enrolled</td>
+								</tr>
+								<tr className="border-b border-cyan-800">
+									<td className="px-3 py-2 font-semibold">2. Modernized Curriculum</td>
+									<td className="px-3 py-2">STEM, digital skills, civics, critical thinking</td>
+									<td className="px-3 py-2">State Boards, NSF</td>
+									<td className="px-3 py-2">Curriculum adoption rate</td>
+								</tr>
+								<tr className="border-b border-cyan-800">
+									<td className="px-3 py-2 font-semibold">3. Teacher & Faculty Support</td>
+									<td className="px-3 py-2">Professional development, pay equity, recruitment</td>
+									<td className="px-3 py-2">Dept. of Education, States</td>
+									<td className="px-3 py-2">Teacher retention rate</td>
+								</tr>
+								<tr className="border-b border-cyan-800">
+									<td className="px-3 py-2 font-semibold">4. Workforce Alignment</td>
+									<td className="px-3 py-2">Career pathways, apprenticeships, employer partnerships</td>
+									<td className="px-3 py-2">Dept. of Labor, Commerce</td>
+									<td className="px-3 py-2">% graduates employed in field</td>
+								</tr>
+								<tr>
+									<td className="px-3 py-2 font-semibold">5. Lifelong Learning</td>
+									<td className="px-3 py-2">Adult upskilling, microcredentials, online learning</td>
+									<td className="px-3 py-2">Community Colleges, EdTech</td>
+									<td className="px-3 py-2">Adult participation rate</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h3 className="text-xl font-bold text-cyan-300 mt-8 mb-2">🚀 National Education Innovation Stack</h3>
+					<ul className="list-disc list-inside space-y-2 text-cyan-100 mb-6">
+						<li><b>Digital Equity:</b> Universal broadband, device access, and digital literacy for all learners.</li>
+						<li><b>STEM Acceleration:</b> Expand STEM and computer science education at all levels.</li>
+						<li><b>Community College Transformation:</b> Free or low-cost pathways to high-demand careers.</li>
+						<li><b>Teacher Empowerment:</b> Invest in professional development, pay, and classroom innovation.</li>
+						<li><b>Lifelong Learning:</b> Support adult upskilling, microcredentials, and flexible online programs.</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	);
+>>>>>>> Stashed changes
 }

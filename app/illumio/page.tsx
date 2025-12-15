@@ -19,6 +19,21 @@ export default function IllumioCorePage() {
           </div>
         </div>
 
+        {/* AI Information */}
+        <NeuralGlassPanel className="mb-8">
+          <h2 className="text-2xl font-bold text-cyan-300 mb-4">AI Capabilities</h2>
+          <div className="grid md:grid-cols-2 gap-6 text-cyan-50">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Knowledge Cutoff</h3>
+              <p className="text-sm">July 2024 (with web search capability when enabled)</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Context Window</h3>
+              <p className="text-sm">128,000 tokens (~96,000 words)</p>
+              <p className="text-xs mt-1 text-cyan-200">Enough for entire books, complex codebases, and lengthy conversations</p>
+            </div>
+          </div>
+        </NeuralGlassPanel>
 
         {/* Project Overview */}
         <NeuralGlassPanel className="mb-8">

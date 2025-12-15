@@ -1,8 +1,13 @@
 "use client";
 
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Users, DollarSign, BarChart3, Sparkles, Shield } from "lucide-react";
+<<<<<<< Updated upstream
+=======
+import { useState } from "react";
+>>>>>>> Stashed changes
 
 export function Navbar() {
   const pathname = usePathname();
@@ -13,6 +18,7 @@ export function Navbar() {
     { href: "/finance", label: "Finance", icon: DollarSign },
   ];
 
+<<<<<<< Updated upstream
   const illumioMenu = {
     label: "Project Phnx",
     icon: Sparkles,
@@ -26,6 +32,19 @@ export function Navbar() {
       { href: "/illumio/blueprints/ai", label: "AI Security" },
     ],
   };
+=======
+  const securityPages = [
+    { href: "/illumio/blueprints/ai", label: "AI Security" },
+    { href: "/illumio/blueprints/food", label: "Food Security" },
+    { href: "/illumio/blueprints/water", label: "Water Security" },
+    { href: "/illumio/blueprints/medical", label: "Medical Security" },
+    { href: "/illumio/blueprints/financial", label: "Financial Security" },
+    { href: "/illumio/blueprints/education", label: "Education Security" },
+    { href: "/illumio/blueprints/renewal", label: "Systemic Renewal" },
+  ];
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+>>>>>>> Stashed changes
 
   return (
     <nav className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-white/10">
@@ -44,7 +63,7 @@ export function Navbar() {
           </Link>
 
           {/* Nav Links */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 relative">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
               const Icon = item.icon;
@@ -67,6 +86,7 @@ export function Navbar() {
             })}
 
             {/* Project Phnx Dropdown */}
+<<<<<<< Updated upstream
             <div className="relative group">
               <Link
                 href={illumioMenu.main.href}
@@ -87,6 +107,42 @@ export function Navbar() {
                   ))}
                 </div>
               </div>
+=======
+            <div className="relative">
+              <button
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all font-medium ${
+                  pathname.startsWith("/illumio")
+                    ? "bg-linear-to-r from-blue-500/20 to-purple-500/20 text-white border border-blue-500/30"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+                onClick={() => setDropdownOpen((open) => !open)}
+                onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
+                aria-haspopup="true"
+                aria-expanded={dropdownOpen}
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Project Phnx</span>
+                <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-gray-900 border border-blue-900 rounded-lg shadow-lg z-50">
+                  {securityPages.map((page) => (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      className={`block px-4 py-2 text-sm rounded-lg transition-all ${
+                        pathname === page.href
+                          ? "bg-blue-800/40 text-white"
+                          : "text-gray-300 hover:bg-blue-900/40 hover:text-white"
+                      }`}
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      {page.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>

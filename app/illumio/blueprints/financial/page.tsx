@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 
 export default function FinancialSecurityPage() {
@@ -115,4 +116,91 @@ export default function FinancialSecurityPage() {
       </div>
     </div>
   );
+=======
+import React from "react";
+import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
+
+export default function FinancialSecurityPage() {
+	return (
+		<div className="min-h-screen bg-linear-to-br from-slate-900 via-indigo-900 to-slate-800 p-4 md:p-8">
+			<div className="max-w-4xl mx-auto py-8">
+				<div className="mb-8 text-center">
+					<h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-emerald-300 to-cyan-400 bg-clip-text text-transparent mb-3">Integrated Financial Security Architecture</h1>
+					<p className="text-slate-200 max-w-2xl mx-auto">A Citizen's Guide to the 12 SRDs — high-level architecture, core mechanisms, and citizen-facing services.</p>
+				</div>
+
+				<NeuralGlassPanel className="mb-6">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-3">Core Thesis</h2>
+					<p className="text-cyan-100">The 12 Systemic Renewal Directorates (SRDs) form an integrated financial security platform designed to attack the cost side of your budget, guarantee a rising income floor, and provide tools for unlimited earning potential. This system is engineered for personal economic resilience.</p>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">I. THE INCOME FLOOR: UBI & Beyond</h3>
+					<p className="text-cyan-100"><b>Primary SRD Engine:</b> SRD 8 (Dynamic Wage & Housing) + SRD 9 (Fiscal Responsibility)</p>
+
+					<h4 className="font-semibold text-cyan-200 mt-3">The Mechanism</h4>
+					<p className="text-cyan-100">The <b>National Earned Income Accelerator</b> is a scalable, politically viable precursor to a full UBI. It functions as an automatic, means-tested, federally-administered wage supplement.</p>
+
+					<ul className="list-disc list-inside text-cyan-100 mt-2">
+						<li><b>How it works:</b> Income electronically verified; full-time essential workers (<i>30+ hrs/week</i>) whose wages fall below <b>150% of their county's Living Wage</b> receive automatic top-ups via direct deposit.</li>
+						<li><b>Living Wage Calculation:</b> SRD 8's Regional Wage & Housing Calculator uses real-time data on housing (SRD 8), childcare (SRD 5), food (SRD 4), healthcare (SRD 3), and transportation (SRD 7) to compute the local living wage.</li>
+					</ul>
+
+					<p className="text-cyan-100 mt-3">This approach is pro-work, pro-dignity, and hyper-local — stabilizing community economies and providing predictable, livable income.</p>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">II. THE INCOME GROWTH ENGINE: Lifelong Education & Skills Wallet</h3>
+					<p className="text-cyan-100"><b>Primary SRD Engine:</b> SRD 2 (Education/Workforce) + SRD 1 (Digital Equity)</p>
+
+					<h4 className="font-semibold text-cyan-200 mt-3">The Mechanism</h4>
+					<p className="text-cyan-100">The <b>National Skills Treasury</b> is a lifelong, citizen-owned ledger of capability built on the Clover Chain — a low-energy blockchain for public good.</p>
+
+					<ul className="list-disc list-inside text-cyan-100 mt-2">
+						<li><b>Clover Chain Wallet:</b> Verifiable, portable resume where learning milestones are minted as tamper-proof "Skill Coins."</li>
+						<li><b>Rewards:</b> Upskill Bounties, Earned Income Accelerator multipliers, and priority job matches on the Talent Exchange.</li>
+					</ul>
+
+					<p className="text-cyan-100 mt-3">You own your human capital — portability and continuous reward make education an investment with clear ROI.</p>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">III. The Cost-Side Attack: Reducing Major Fixed Expenses</h3>
+
+					<h4 className="font-semibold text-cyan-200 mt-2">A. Healthcare Reform (SRD 3)</h4>
+					<p className="text-cyan-100">Community Health Navigators and pharmacy care lower routine costs; the Preventative Health API rewards healthy behavior with lower premiums — bending the cost curve by thousands per household.</p>
+
+					<h4 className="font-semibold text-cyan-200 mt-2">B. Food Security (SRD 4)</h4>
+					<p className="text-cyan-100">Community Food Resilience Hubs and the Food Rail surplus market reduce fresh food costs substantially while improving nutrition.</p>
+
+					<h4 className="font-semibold text-cyan-200 mt-2">C. Dynamic Minimum Wage (SRD 8)</h4>
+					<p className="text-cyan-100">County-level Living Wage adjustments and housing market integration ensure wages track true local costs.</p>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">IV. The Compounding Benefits: System Synergies</h3>
+					<ul className="list-disc list-inside text-cyan-100">
+						<li><b>Childcare (SRD 5):</b> Sliding-Scale Guarantee caps childcare at 7% of income, enabling higher labor participation.</li>
+						<li><b>Infrastructure & Energy (SRD 7 & 11):</b> Smart roads, community solar, and grid modernization reduce household costs and increase resilience.</li>
+						<li><b>Adolescent Development (SRD 6):</b> Youth investment reduces future social costs and preserves community value.</li>
+						<li><b>Fiscal Transparency (SRD 9):</b> Blockchain-based Treasury and Citizen's Budget Tool cut waste and increase effective return on taxes.</li>
+					</ul>
+
+					<h4 className="font-semibold text-cyan-200 mt-3">Citizen Dashboard (Day in the Life)</h4>
+					<ol className="list-decimal list-inside text-cyan-100">
+						<li>Earned Income Accelerator shows top-up this period.</li>
+						<li>Clover Chain Wallet displays new Skill Coins and Upskill Bounties.</li>
+						<li>Health & Food Savings Tracker reports monthly savings.</li>
+						<li>Community Investment Map highlights local infrastructure gains.</li>
+					</ol>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-6">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Conclusion: From Precariousness to Predictable Prosperity</h3>
+					<p className="text-cyan-100">The 12 SRDs dismantle financial anxiety architecture: guaranteeing a livable income floor, cutting fixed costs, and powering income growth through education. The result is stability plus agency — the freedom to take risks, build wealth, and participate civically.</p>
+				</NeuralGlassPanel>
+			</div>
+		</div>
+	);
+>>>>>>> Stashed changes
 }

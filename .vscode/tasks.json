@@ -6,6 +6,7 @@
 			"type": "shell",
 			"command": "npm run dev",
 			"isBackground": true,
+<<<<<<< Updated upstream
 			"problemMatcher": [
 				"$tsc"
 			],
@@ -19,6 +20,8 @@
 			"problemMatcher": [
 				"$tsc"
 			],
+=======
+>>>>>>> Stashed changes
 			"group": "build"
 		}
 	]

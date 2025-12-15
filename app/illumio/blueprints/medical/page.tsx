@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 
 export default function MedicalSecurityPage() {
@@ -187,3 +188,173 @@ export default function MedicalSecurityPage() {
     </div>
   );
 }
+=======
+import React from "react";
+import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
+import { MedicalSystemDiagram } from "@/components/ui/MedicalSystemDiagram";
+
+export default function MedicalSecurityPage() {
+	return (
+		<div className="min-h-screen bg-linear-to-br from-slate-900 via-indigo-900 to-slate-800 p-4 md:p-8">
+			<div className="max-w-4xl mx-auto py-8">
+				<div className="mb-10 text-center">
+					<h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-emerald-300 to-cyan-400 bg-clip-text text-transparent mb-3">Medical Security: Blueprint</h1>
+					<p className="text-slate-200 max-w-2xl mx-auto">A resilient medical system requires integrated surveillance, robust supply chains, adaptable care delivery, and an empowered workforce. This blueprint maps interventions across those domains.</p>
+				</div>
+
+				<NeuralGlassPanel className="mb-8">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-3">Overview & Priorities</h2>
+					<p className="text-cyan-100 mb-4">Strengthen nationwide early-warning surveillance, secure critical medical supply chains, expand telehealth, and scale workforce surge capacity with clear drills and funding pathways.</p>
+					<ul className="list-disc list-inside text-cyan-100 space-y-2">
+						<li><b>Surveillance:</b> Unified case reporting, genomic sequencing, and wastewater monitoring.</li>
+						<li><b>Supply Chain:</b> National stockpiles with decentralized caches and real-time inventory.</li>
+						<li><b>Care Delivery:</b> Tiered network, mobile response teams, telehealth hubs.</li>
+						<li><b>Workforce:</b> Surge training, cross-licensing, and mental health support.</li>
+					</ul>
+				</NeuralGlassPanel>
+				<NeuralGlassPanel className="mb-8">
+					<h2 className="text-2xl font-bold text-emerald-300 mb-4">Aegis Health Security Initiative: A National Health Protection Plan for Every American</h2>
+
+					<h3 className="text-lg font-bold text-cyan-200">Executive Summary</h3>
+					<p className="text-cyan-100 mb-3">Right now, America's healthcare system loses <b>$300 billion every year to fraud</b> — that's <b>$900 per person</b> stolen from patients, taxpayers, and honest providers. Meanwhile, 40% of Americans skip needed care due to costs, and medical errors are the third leading cause of death.</p>
+					<p className="text-cyan-100 mb-4">The <b>Aegis Health Security Initiative</b> fixes both problems at once: we stop the fraud stealing your healthcare dollars AND make care better, safer, and more affordable for every American.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 1: The Problem We're Solving</h3>
+					<h4 className="text-md font-semibold text-cyan-200 mt-2">The Fraud Epidemic</h4>
+					<ul className="list-disc list-inside text-cyan-100 mb-3">
+						<li><b>Medical identity theft</b>: 2.3 million Americans had their medical identity stolen last year</li>
+						<li><b>Phantom billing</b>: Paying for surgeries that never happened</li>
+						<li><b>Upcoding</b>: Simple checkups billed as major procedures</li>
+						<li><b>Kickbacks</b>: Providers paid to prescribe unnecessary drugs</li>
+					</ul>
+
+					<h4 className="text-md font-semibold text-cyan-200">The Care Crisis</h4>
+					<ul className="list-disc list-inside text-cyan-100 mb-4">
+						<li><b>Avoidable errors</b>: ~250,000 deaths annually from medical mistakes</li>
+						<li><b>Missed prevention</b>: Many heart attacks and strokes are preventable but aren't prevented</li>
+						<li><b>Fragmented care</b>: Records trapped across systems</li>
+					</ul>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 2: The Solution — Aegis Health Security System</h3>
+					<p className="text-cyan-100 mb-3">Think of Aegis like a national health credit-card system: it protects every healthcare interaction while making care easier and safer.</p>
+					<p className="text-cyan-100 mb-3">Your <b>Aegis Health ID</b> (example): <code className="bg-slate-800 px-2 py-0.5 rounded">C-A7B49-F2R8E-M</code> — a secure 13-digit key with no personal data embedded. Works at every provider and pharmacy.</p>
+
+					<h4 className="text-md font-semibold text-cyan-200 mt-2">Day-to-day Flow</h4>
+					<ol className="list-decimal list-inside text-cyan-100 mb-4">
+						<li>Visit doctor → Present Aegis Health ID</li>
+						<li>System verifies identity, fetches authorized history</li>
+						<li>Doctor reviews integrated record and recommended treatments</li>
+						<li>Bill processed with real-time fraud checks</li>
+						<li>You review charges in a simple app with full transparency</li>
+					</ol>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 3: The Council on Medical Security</h3>
+					<p className="text-cyan-100 mb-2">An independent watchdog modeled on the CFPB with subpoena and enforcement powers to protect patients and punish misuse.</p>
+					<ul className="list-disc list-inside text-cyan-100 mb-3">
+						<li><b>Subpoena authority</b>, civil penalties up to $50,000 per violation, and patient restitution mandates</li>
+						<li><b>Whistleblower protections</b> with bounty rewards</li>
+						<li><b>Rights for patients:</b> audit, correction, restitution, prevention plans, portability</li>
+					</ul>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 4: How We Stop Fraud and Improve Care</h3>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+						<div>
+							<h4 className="font-semibold text-cyan-200">Stopping the $300B theft</h4>
+							<ul className="list-disc list-inside text-cyan-100">
+								<li><b>Biometric Aegis ID</b> — reduces identity theft dramatically</li>
+								<li><b>Real-time digital verification</b> — stops phantom billing</li>
+								<li><b>Cross-pharmacy tracking</b> — stops prescription fraud</li>
+								<li><b>Transparent referrals and AI-based billing checks</b> — prevents upcoding and kickbacks</li>
+							</ul>
+						</div>
+						<div>
+							<h4 className="font-semibold text-cyan-200">Improving care</h4>
+							<ul className="list-disc list-inside text-cyan-100">
+								<li>Records portability — no repeated tests</li>
+								<li>Personalized prevention plans — fewer late-stage diseases</li>
+								<li>AI double-checks — reduces medical errors</li>
+								<li>Paramedic access en route — better emergency outcomes</li>
+							</ul>
+						</div>
+					</div>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 5: Cost-Benefit Analysis</h3>
+					<p className="text-cyan-100 mb-2"><b>Investment:</b> $47B over 7 years (development, hardware, training, Council)</p>
+					<p className="text-cyan-100 mb-2"><b>Savings:</b> ~$285B annually starting Year 5 from fraud reduction, admin savings, prevention, and error reduction — netting multitrillion benefits over a decade.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 6: Implementation Phases</h3>
+					<ol className="list-decimal list-inside text-cyan-100 mb-4">
+						<li><b>Phase 1 (Years 1-2):</b> Pilot in volunteer states, issue IDs to Medicaid/Medicare, connect major hospitals.</li>
+						<li><b>Phase 2 (Years 3-4):</b> National rollout, opt-out option, launch Council, begin national real-time fraud prevention.</li>
+						<li><b>Phase 3 (Years 5-7):</b> Full implementation with advanced AI and international interoperability.</li>
+						<li><b>Phase 4 (Year 8+):</b> Wearables integration, predictive forecasting, continuous improvement.</li>
+					</ol>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 7: Privacy & Protections</h3>
+					<ul className="list-disc list-inside text-cyan-100 mb-4">
+						<li>No central government store of health records; IDs carry no personal info.</li>
+						<li>Permissioned access; audit logs visible to patients.</li>
+						<li>Strict emergency break-glass rules with post-access review and penalties.</li>
+						<li>Heavy criminal penalties and license revocations for misuse.</li>
+					</ul>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 8: What Changes for People</h3>
+					<p className="text-cyan-100 mb-2">At the doctor's: tap your Aegis ID and your full, permissioned history is available. Paying bills: clear app-based explanations and automated fraud checks. Staying healthy: personalized preventive plans and coaching.</p>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 9: FAQs (Short)</h3>
+					<ul className="list-disc list-inside text-cyan-100 mb-4">
+						<li><b>Is this government healthcare?</b> No — it's protection like the FDIC; you keep your doctors and insurance.</li>
+						<li><b>Opt-out?</b> Yes — with tradeoffs (higher costs and less protection).</li>
+						<li><b>Hacking risk?</b> Military-grade encryption, monitoring, and strict controls make Aegis safer than current fragmented systems.</li>
+					</ul>
+
+					<h3 className="text-lg font-bold text-emerald-400 mt-4">Part 10: Call to Action</h3>
+					<ol className="list-decimal list-inside text-cyan-100 mb-4">
+						<li>Share the plan to raise awareness.</li>
+						<li>Support enabling legislation (Aegis Health Security Act).</li>
+						<li>Participate in pilot programs and serve as local ombudsmen.</li>
+					</ol>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-8">
+					<h2 className="text-2xl font-bold text-cyan-300 mb-3">Medical System Topology</h2>
+					<p className="text-cyan-200 text-sm mb-4">Visual overview of how components interact — centralized orchestration with domain modules and two-way telemetry.</p>
+					<MedicalSystemDiagram />
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel className="mb-8">
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Implementation Roadmap</h3>
+					<ol className="list-decimal list-inside text-cyan-100 space-y-2">
+						<li><b>0-6 months:</b> Connect hospital EHRs to national reporting, launch inventory portals.</li>
+						<li><b>6-18 months:</b> Regional telehealth hubs, workforce surge programs, and logistics pilots.</li>
+						<li><b>18-36 months:</b> National readiness exercises, genomic sequencing at scale, integrated community response.</li>
+					</ol>
+				</NeuralGlassPanel>
+
+				<NeuralGlassPanel>
+					<h3 className="text-xl font-bold text-emerald-400 mb-2">Key Metrics</h3>
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-cyan-300">99%</div>
+							<div className="text-xs text-cyan-100">EHR Reporting Coverage</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-green-300">72%</div>
+							<div className="text-xs text-cyan-100">Stockpile Readiness</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-amber-300">8k</div>
+							<div className="text-xs text-cyan-100">Telehealth Hubs</div>
+						</div>
+						<div className="rounded bg-slate-900/40 p-3 text-center">
+							<div className="text-2xl font-bold text-pink-300">120k</div>
+							<div className="text-xs text-cyan-100">Trained Surge Clinicians</div>
+						</div>
+					</div>
+				</NeuralGlassPanel>
+			
+			</div>
+		</div>
+	);
+}
+>>>>>>> Stashed changes
