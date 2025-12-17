@@ -53,11 +53,13 @@ export default function QualityOfLifeDashboard() {
           <div className="space-y-4">
             {years.map((y) => {
               const v = srd[y as keyof typeof srd];
+              const fy = String(y);
+              const srdQol = qualityOfLifeData.srd_qol_index.fiscal_years[fy as keyof typeof qualityOfLifeData.srd_qol_index.fiscal_years];
               return (
                 <div key={`s-${y}`} className="p-4 rounded-lg bg-gray-800/40">
                   <div className="flex justify-between">
                     <div className="font-semibold">FY {y}</div>
-                    <div className="text-sm text-emerald-300">QoL: {v.QoL_index ?? qualityOfLifeData.srd_qol_index.fiscal_years[y]}</div>
+                    <div className="text-sm text-emerald-300">QoL: {v.QoL_index ?? srdQol ?? '—'}</div>
                   </div>
                   <div className="mt-2 grid grid-cols-2 gap-4">
                     <div>Revenue</div>
