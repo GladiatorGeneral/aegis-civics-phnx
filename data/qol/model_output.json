@@ -1,0 +1,89 @@
+{
+  "generated_at": "2025-12-16T01:27:16.096Z",
+  "results": [
+    {
+      "id": "voter_outreach",
+      "name": "Civic Participation Push",
+      "srd": "Governance & Civic",
+      "cost_m": 25,
+      "marginal_qol_uplift_per_1m": 0.1371
+    },
+    {
+      "id": "eviction_prevention",
+      "name": "Eviction Prevention Program",
+      "srd": "Economic Security & Housing",
+      "cost_m": 80,
+      "marginal_qol_uplift_per_1m": 0.0679
+    },
+    {
+      "id": "workforce_credentials",
+      "name": "Workforce Credentialing",
+      "srd": "Education & Workforce",
+      "cost_m": 90,
+      "marginal_qol_uplift_per_1m": 0.0667
+    },
+    {
+      "id": "nutrition_programs",
+      "name": "Nutrition & Food Access",
+      "srd": "Food & Community Safety",
+      "cost_m": 200,
+      "marginal_qol_uplift_per_1m": 0.0271
+    },
+    {
+      "id": "primary_care_expansion",
+      "name": "Primary Care Expansion",
+      "srd": "Health",
+      "cost_m": 250,
+      "marginal_qol_uplift_per_1m": 0.0251
+    },
+    {
+      "id": "early_childhood_programs",
+      "name": "Early Childhood Education Boost",
+      "srd": "Child & Family",
+      "cost_m": 300,
+      "marginal_qol_uplift_per_1m": 0.0186
+    },
+    {
+      "id": "rental_assistance",
+      "name": "Targeted Rental Assistance",
+      "srd": "Economic Security & Housing",
+      "cost_m": 400,
+      "marginal_qol_uplift_per_1m": 0.0136
+    },
+    {
+      "id": "energy_efficiency",
+      "name": "Home Energy Retrofit",
+      "srd": "Energy & Environment",
+      "cost_m": 350,
+      "marginal_qol_uplift_per_1m": 0.0131
+    },
+    {
+      "id": "childcare_subsidy",
+      "name": "Childcare Subsidy Expansion",
+      "srd": "Child & Family",
+      "cost_m": 450,
+      "marginal_qol_uplift_per_1m": 0.0124
+    },
+    {
+      "id": "broadband_deployment",
+      "name": "Broadband Deployment",
+      "srd": "Digital Access",
+      "cost_m": 600,
+      "marginal_qol_uplift_per_1m": 0.0069
+    },
+    {
+      "id": "grid_resilience",
+      "name": "Grid Resilience Investments",
+      "srd": "Energy & Environment",
+      "cost_m": 700,
+      "marginal_qol_uplift_per_1m": 0.0065
+    },
+    {
+      "id": "universal_coverage_subsidy",
+      "name": "Coverage Subsidy",
+      "srd": "Health",
+      "cost_m": 1200,
+      "marginal_qol_uplift_per_1m": 0.0052
+    }
+  ]
+}

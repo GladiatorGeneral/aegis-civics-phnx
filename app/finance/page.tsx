@@ -1,4 +1,4 @@
-import { FederalFinanceDashboard } from "@/components/finance/FederalFinanceDashboard";
+import YearedFinance from "@/components/finance/YearedFinance";
 
 export default function FinancePage() {
   return (
@@ -13,14 +13,15 @@ export default function FinancePage() {
             <span className="text-white ml-3">Dashboard</span>
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl">
-            Comprehensive overview of US federal government revenue, spending, debt, and major programs for Fiscal Year 2024.
+            Comprehensive overview of US federal government revenue, spending, debt, and major programs.
           </p>
         </div>
       </div>
 
       <main className="container mx-auto px-4 pb-12">
-        <FederalFinanceDashboard />
+        <YearedFinance />
       </main>
     </div>
   );
 }
+ 

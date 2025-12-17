@@ -19,21 +19,7 @@ export default function IllumioCorePage() {
           </div>
         </div>
 
-        {/* AI Information */}
-        <NeuralGlassPanel className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-4">AI Capabilities</h2>
-          <div className="grid md:grid-cols-2 gap-6 text-cyan-50">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Knowledge Cutoff</h3>
-              <p className="text-sm">July 2024 (with web search capability when enabled)</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Context Window</h3>
-              <p className="text-sm">128,000 tokens (~96,000 words)</p>
-              <p className="text-xs mt-1 text-cyan-200">Enough for entire books, complex codebases, and lengthy conversations</p>
-            </div>
-          </div>
-        </NeuralGlassPanel>
+        {/* AI Information removed per request */}
 
         {/* Project Overview */}
         <NeuralGlassPanel className="mb-8">
@@ -109,28 +95,47 @@ export default function IllumioCorePage() {
         <NeuralGlassPanel className="mb-8">
           <h2 className="text-2xl font-bold text-cyan-300 mb-6">12 Systemic Renewal Directorates (SRDs)</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { num: 1, name: "Digital Equity & Infrastructure", icon: "🌐" },
-              { num: 2, name: "Education & Workforce Development", icon: "🎓" },
-              { num: 3, name: "Healthcare System Reengineering", icon: "⚕️" },
-              { num: 4, name: "Food Security & Agriculture", icon: "🌾" },
-              { num: 5, name: "Affordable Childcare & Family Support", icon: "👶" },
-              { num: 6, name: "Adolescent Development & Safety", icon: "🛡️" },
-              { num: 7, name: "National Infrastructure", icon: "🏗️" },
-              { num: 8, name: "Dynamic Wage & Housing Stability", icon: "🏘️" },
-              { num: 9, name: "Fiscal Responsibility & Transparency", icon: "💰" },
-              { num: 10, name: "State & Local Empowerment", icon: "🏛️" },
-              { num: 11, name: "Renewable Energy & Grid Independence", icon: "⚡" },
-              { num: 12, name: "Civic Engagement & Democracy", icon: "🗳️" }
-            ].map((srd) => (
-              <div key={srd.num} className="bg-cyan-900/20 rounded-lg p-4 hover:bg-cyan-900/30 transition-all">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">{srd.icon}</span>
-                  <span className="text-lg font-bold text-cyan-300">SRD {srd.num}</span>
+            {(() => {
+              const gradients = [
+                'bg-linear-to-r from-indigo-600 to-cyan-500',
+                'bg-linear-to-r from-emerald-500 to-teal-400',
+                'bg-linear-to-r from-rose-500 to-pink-400',
+                'bg-linear-to-r from-amber-500 to-orange-400',
+                'bg-linear-to-r from-violet-500 to-purple-400',
+                'bg-linear-to-r from-lime-500 to-emerald-400',
+                'bg-linear-to-r from-sky-500 to-blue-400',
+                'bg-linear-to-r from-fuchsia-500 to-pink-500',
+                'bg-linear-to-r from-amber-600 to-yellow-400',
+                'bg-linear-to-r from-emerald-700 to-cyan-500',
+                'bg-linear-to-r from-teal-500 to-sky-400',
+                'bg-linear-to-r from-blue-600 to-purple-500',
+              ];
+
+              const srds = [
+                { num: 1, name: "Digital Equity & Infrastructure", icon: "🌐" },
+                { num: 2, name: "Education & Workforce Development", icon: "🎓" },
+                { num: 3, name: "Healthcare System Reengineering", icon: "⚕️" },
+                { num: 4, name: "Food Security & Agriculture", icon: "🌾" },
+                { num: 5, name: "Affordable Childcare & Family Support", icon: "👶" },
+                { num: 6, name: "Adolescent Development & Safety", icon: "🛡️" },
+                { num: 7, name: "National Infrastructure", icon: "🏗️" },
+                { num: 8, name: "Dynamic Wage & Housing Stability", icon: "🏘️" },
+                { num: 9, name: "Fiscal Responsibility & Transparency", icon: "💰" },
+                { num: 10, name: "State & Local Empowerment", icon: "🏛️" },
+                { num: 11, name: "Renewable Energy & Grid Independence", icon: "⚡" },
+                { num: 12, name: "Civic Engagement & Democracy", icon: "🗳️" }
+              ];
+
+              return srds.map((srd, i) => (
+                <div key={srd.num} className={`${gradients[i]} rounded-lg p-4 shadow-md text-white`}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-2xl">{srd.icon}</span>
+                    <span className="text-lg font-bold drop-shadow">SRD {srd.num}</span>
+                  </div>
+                  <p className="text-sm">{srd.name}</p>
                 </div>
-                <p className="text-sm text-cyan-100">{srd.name}</p>
-              </div>
-            ))}
+              ));
+            })()}
           </div>
         </NeuralGlassPanel>
 

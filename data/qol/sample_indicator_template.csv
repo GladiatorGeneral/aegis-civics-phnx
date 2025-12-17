@@ -1,0 +1,2 @@
+region_type,region_id,date,value,units,source_url,notes
+national,USA,2025-12-01,123.4,index,https://example.gov/sample-source,"Sample row: replace with real values"

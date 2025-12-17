@@ -1,0 +1,29 @@
+[
+  {"id":"avoid_hosp","domain":"Health","name":"Avoidable hospitalizations per 10k","why":"Proxy for primary care access & system efficiency","source":"CMS / State hospital discharge data","source_type":"administrative","frequency":"quarterly","visualization":"sparkline; per-10000 choropleth","sample_csv":"avoid_hosp.csv"},
+  {"id":"uninsured_rate","domain":"Health","name":"Uninsured rate (%)","why":"Direct access measure","source":"CPS / ACS + state Medicaid stats","source_type":"survey & administrative","frequency":"annual","visualization":"trend line; tile traffic-light","sample_csv":"uninsured_rate.csv"},
+  {"id":"health_spend_growth","domain":"Health","name":"Per-capita health spending growth (real)","why":"Cost control metric","source":"CMS NHE; state reports","source_type":"administrative","frequency":"annual","visualization":"trend; domain contribution","sample_csv":"health_spend_growth.csv"},
+
+  {"id":"credential_attainment","domain":"Education & Workforce","name":"Credential attainment within 12 months","why":"Measures workforce program success","source":"Program admin; DoL","source_type":"administrative","frequency":"quarterly","visualization":"cohort funnel; sparkline","sample_csv":"credential_attainment.csv"},
+  {"id":"k3_readiness","domain":"Education & Workforce","name":"K–3 school readiness index","why":"Early-learning impact","source":"State early childhood assessments","source_type":"administrative","frequency":"annual","visualization":"index; tile","sample_csv":"k3_readiness.csv"},
+  {"id":"lfp_25_54","domain":"Education & Workforce","name":"Labor force participation (25–54)","why":"Workforce inclusion","source":"BLS; state unemployment","source_type":"administrative","frequency":"monthly","visualization":"trend; gender split","sample_csv":"lfp_25_54.csv"},
+
+  {"id":"median_disposable_income","domain":"Economic Security & Housing","name":"Median real household disposable income","why":"Economic well-being","source":"BEA / CPS","source_type":"administrative","frequency":"annual","visualization":"median trend; distribution","sample_csv":"median_disposable_income.csv"},
+  {"id":"housing_cost_burden","domain":"Economic Security & Housing","name":"Housing cost burden (%)","why":"Housing stability metric","source":"ACS / HUD","source_type":"administrative","frequency":"annual","visualization":"choropleth; tile","sample_csv":"housing_cost_burden.csv"},
+  {"id":"eviction_rate","domain":"Economic Security & Housing","name":"Eviction rate per 1k renter households","why":"Shock indicator","source":"HUD / court records","source_type":"administrative","frequency":"quarterly","visualization":"sparkline; alert threshold","sample_csv":"eviction_rate.csv"},
+
+  {"id":"broadband_100mbps","domain":"Digital Access","name":"% households ≥100/20 Mbps","why":"Infrastructure & affordability","source":"FCC maps; state broadband","source_type":"administrative","frequency":"monthly","visualization":"map; tile","sample_csv":"broadband_100mbps.csv"},
+  {"id":"digital_skills","domain":"Digital Access","name":"Digital skills pass rate","why":"Readiness to use services","source":"Program assessments","source_type":"administrative","frequency":"quarterly","visualization":"bar; cohort","sample_csv":"digital_skills.csv"},
+
+  {"id":"pct_renewables","domain":"Energy & Environment","name":"% electricity from renewables","why":"Decarbonization progress","source":"EIA / DOE","source_type":"administrative","frequency":"annual","visualization":"trend; region map","sample_csv":"pct_renewables.csv"},
+  {"id":"grid_reliability","domain":"Energy & Environment","name":"Grid reliability index (SAIDI/SAIFI)","why":"Resilience metric","source":"DOE / utilities","source_type":"administrative","frequency":"quarterly","visualization":"trend; alert","sample_csv":"grid_reliability.csv"},
+
+  {"id":"childcare_coverage","domain":"Child & Family","name":"Childcare coverage rate (0–4)","why":"Labor participation enabler","source":"ACS; program admin","source_type":"administrative","frequency":"annual","visualization":"tile; trend","sample_csv":"childcare_coverage.csv"},
+  {"id":"child_poverty","domain":"Child & Family","name":"Child poverty rate (<18)","why":"Welfare focal point","source":"Census ACS","source_type":"administrative","frequency":"annual","visualization":"trend; map","sample_csv":"child_poverty.csv"},
+  {"id":"parent_lfp_mothers","domain":"Child & Family","name":"Parental labor participation (mothers with <5)","why":"Effect of childcare","source":"BLS / CPS","source_type":"administrative","frequency":"quarterly","visualization":"trend","sample_csv":"parent_lfp_mothers.csv"},
+
+  {"id":"food_insecurity","domain":"Food & Community Safety","name":"Food insecurity rate (%)","why":"Basic needs metric","source":"USDA food security survey; local banks","source_type":"survey & admin","frequency":"annual","visualization":"trend; cohort","sample_csv":"food_insecurity.csv"},
+  {"id":"youth_violent_crime","domain":"Food & Community Safety","name":"Youth violent crime rate (per 100k)","why":"Community safety outcome","source":"FBI; state/local","source_type":"administrative","frequency":"annual","visualization":"map; trend","sample_csv":"youth_violent_crime.csv"},
+
+  {"id":"qol_value_added","domain":"Governance & Civic","name":"QoL Composite Value-Added Score","why":"Modeled marginal QoL delta per $ invested","source":"Internal network model","source_type":"modeled","frequency":"quarterly","visualization":"numeric KPI; what-if model","sample_csv":"qol_value_added.csv"},
+  {"id":"civic_participation","domain":"Governance & Civic","name":"Civic participation index","why":"Social capital indicator","source":"Election records; surveys","source_type":"administrative & survey","frequency":"annual","visualization":"index; trend","sample_csv":"civic_participation.csv"}
+]

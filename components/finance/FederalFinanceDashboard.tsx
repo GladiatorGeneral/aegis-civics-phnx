@@ -1,12 +1,56 @@
 "use client";
 
-import { federalFinanceData2024, formatCurrency, formatNumber } from "@/lib/data/federal-finance";
+import { formatCurrency, formatNumber, getFederalFinanceData } from "@/lib/data/federal-finance";
 import { TrendingUp, TrendingDown, DollarSign, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function FederalFinanceDashboard() {
-  const data = federalFinanceData2024;
+export function FederalFinanceDashboard({ year = 2024, showSRD = false }: { year?: number; showSRD?: boolean }) {
+  const data = getFederalFinanceData(year);
+  // SRD impact maps (applied only when `showSRD` is true and FY 2026 selected)
+  const srdRevenueMap: Record<string, number> = (showSRD && year === 2026) ? {
+    individualIncomeTaxes: 0.16,
+    payrollTaxes: 0.15,
+    corporateIncomeTaxes: 0.06,
+    otherSources: 0.03,
+  } : {};
+
+  const srdSpendingMap: Record<string, number> = (showSRD && year === 2026) ? {
+    socialSecurity: -0.03,
+    defenseAndVeterans: 0.0,
+    stateLocalTransfers: -0.04,
+    medicare: -0.17,
+    netInterest: -0.06,
+    otherPrograms: -0.08,
+  } : {};
+
+  const revenueLift = Object.values(srdRevenueMap).reduce((s, v) => s + v, 0);
+  const spendingChange = Object.values(srdSpendingMap).reduce((s, v) => s + v, 0); // negative when moderation
+  const postTotalRevenue = +(data.headline.totalRevenue + revenueLift).toFixed(2);
+  const postTotalSpending = +(data.headline.totalSpending + spendingChange).toFixed(2);
+  const postDeficit = +(data.headline.budgetDeficit - revenueLift + spendingChange).toFixed(2);
+  const deficitReduction = +(data.headline.budgetDeficit - postDeficit).toFixed(2);
+  const postTotalFederalDebt = +(data.headline.totalFederalDebt - deficitReduction).toFixed(2);
+  const postInterestOnDebt = +(data.headline.interestOnDebt * (postTotalFederalDebt / data.headline.totalFederalDebt)).toFixed(2);
+  const postInterestAsPercentSpending = +((postInterestOnDebt / postTotalSpending) * 100).toFixed(1);
+  const postRevenueGrowthSince1980 = +(data.context.revenueGrowthSince1980 * (postTotalRevenue / data.headline.totalRevenue)).toFixed(2);
+  const postSpendingGrowthSince1980 = +(data.context.spendingGrowthSince1980 * (postTotalSpending / data.headline.totalSpending)).toFixed(2);
+  const lastYear = (data.historicalTrends && data.historicalTrends.length)
+    ? data.historicalTrends[data.historicalTrends.length - 1].year
+    : data.fiscalYear;
+  const peakRevenue = (data.historicalTrends || []).reduce(
+    (acc, cur) => (cur.revenue > acc.value ? { year: cur.year, value: cur.revenue } : acc),
+    { year: data.fiscalYear, value: data.headline.totalRevenue }
+  );
+  const peakSpending = (data.historicalTrends || []).reduce(
+    (acc, cur) => (cur.spending > acc.value ? { year: cur.year, value: cur.spending } : acc),
+    { year: data.fiscalYear, value: data.headline.totalSpending }
+  );
   const deficitPercent = ((data.headline.budgetDeficit / data.headline.totalRevenue) * 100).toFixed(0);
+  const trends = data.historicalTrends || [];
+  const n = trends.length;
+  const denom = Math.max(1, n - 1);
+  const maxVal = Math.max(...trends.map((d) => Math.max(d.revenue, d.spending)), 1);
+  const yFor = (v: number) => 300 - (v / maxVal) * 300;
 
   return (
     <div className="space-y-8">
@@ -14,7 +58,7 @@ export function FederalFinanceDashboard() {
       <section>
         <h2 className="text-3xl font-bold mb-6">
           <span className="bg-linear-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-            FY 2024 Overview
+            FY {data.fiscalYear} Overview
           </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -29,11 +73,14 @@ export function FederalFinanceDashboard() {
               <div className="p-3 rounded-xl bg-green-500/20">
                 <TrendingUp className="w-6 h-6 text-green-400" />
               </div>
-              <span className="text-xs text-gray-400">FY 2024</span>
+              <span className="text-xs text-gray-400">FY {data.fiscalYear}</span>
             </div>
             <h3 className="text-gray-400 text-sm mb-2">Total Revenue</h3>
             <p className="text-4xl font-bold text-white mb-2">
               {formatCurrency(data.headline.totalRevenue)}
+              {showSRD && year === 2026 ? (
+                <span className="ml-3 text-sm text-emerald-300">→ {formatCurrency(postTotalRevenue)}</span>
+              ) : null}
             </p>
             <p className="text-xs text-gray-400">Federal government income</p>
           </motion.div>
@@ -49,11 +96,14 @@ export function FederalFinanceDashboard() {
               <div className="p-3 rounded-xl bg-red-500/20">
                 <TrendingDown className="w-6 h-6 text-red-400" />
               </div>
-              <span className="text-xs text-gray-400">FY 2024</span>
+              <span className="text-xs text-gray-400">FY {data.fiscalYear}</span>
             </div>
             <h3 className="text-gray-400 text-sm mb-2">Total Spending</h3>
             <p className="text-4xl font-bold text-white mb-2">
               {formatCurrency(data.headline.totalSpending)}
+              {showSRD && year === 2026 ? (
+                <span className="ml-3 text-sm text-amber-300">→ {formatCurrency(postTotalSpending)}</span>
+              ) : null}
             </p>
             <p className="text-xs text-gray-400">Federal government outlays</p>
           </motion.div>
@@ -76,6 +126,9 @@ export function FederalFinanceDashboard() {
             <h3 className="text-gray-400 text-sm mb-2">Budget Deficit</h3>
             <p className="text-4xl font-bold text-white mb-2">
               {formatCurrency(data.headline.budgetDeficit)}
+              {showSRD && year === 2026 ? (
+                <span className="ml-3 text-sm text-orange-300">→ {formatCurrency(postDeficit)}</span>
+              ) : null}
             </p>
             <p className="text-xs text-gray-400">Spending exceeded revenue</p>
           </motion.div>
@@ -98,6 +151,9 @@ export function FederalFinanceDashboard() {
             <h3 className="text-gray-400 text-sm mb-2">Total Federal Debt</h3>
             <p className="text-4xl font-bold text-white mb-2">
               {formatCurrency(data.headline.totalFederalDebt)}
+              {showSRD && year === 2026 ? (
+                <span className="ml-3 text-sm text-purple-300">→ {formatCurrency(postTotalFederalDebt)}</span>
+              ) : null}
             </p>
             <p className="text-xs text-gray-400">
               {formatCurrency(data.context.debtPerPerson, "dollars")} per person
@@ -122,6 +178,9 @@ export function FederalFinanceDashboard() {
             <h3 className="text-gray-400 text-sm mb-2">Interest on Debt</h3>
             <p className="text-4xl font-bold text-white mb-2">
               {formatCurrency(data.headline.interestOnDebt)}
+              {showSRD && year === 2026 ? (
+                <span className="ml-3 text-sm text-blue-300">→ {formatCurrency(postInterestOnDebt)}</span>
+              ) : null}
             </p>
             <p className="text-xs text-gray-400">Annual debt service cost</p>
           </motion.div>
@@ -142,10 +201,10 @@ export function FederalFinanceDashboard() {
             <h3 className="text-gray-400 text-sm mb-2">Historical Growth</h3>
             <div className="space-y-2">
               <div>
-                <p className="text-sm text-gray-400">Revenue: <span className="text-white font-semibold">{data.context.revenueGrowthSince1980}x</span></p>
+                <p className="text-sm text-gray-400">Revenue: <span className="text-white font-semibold">{data.context.revenueGrowthSince1980}x{showSRD && year === 2026 ? (<span className="ml-2 text-emerald-300"> → {postRevenueGrowthSince1980}x</span>) : null}</span></p>
               </div>
               <div>
-                <p className="text-sm text-gray-400">Spending: <span className="text-white font-semibold">{data.context.spendingGrowthSince1980}x</span></p>
+                <p className="text-sm text-gray-400">Spending: <span className="text-white font-semibold">{data.context.spendingGrowthSince1980}x{showSRD && year === 2026 ? (<span className="ml-2 text-amber-300"> → {postSpendingGrowthSince1980}x</span>) : null}</span></p>
               </div>
               <div>
                 <p className="text-sm text-gray-400">Population: <span className="text-white font-semibold">{data.context.populationGrowthSince1980}x</span></p>
@@ -158,11 +217,15 @@ export function FederalFinanceDashboard() {
       {/* Revenue Breakdown */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="p-6 rounded-2xl bg-gray-900/50 border border-white/10">
-          <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
             <span className="text-green-400">↑</span> Revenue Sources
           </h3>
           <p className="text-sm text-gray-400 mb-6">
-            Total: {formatCurrency(data.headline.totalRevenue)} | 
+            Total: {formatCurrency(data.headline.totalRevenue)}
+            {showSRD && year === 2026 ? (
+              <span className="ml-3 text-sm text-emerald-300">→ Post‑SRD: {formatCurrency(postTotalRevenue)}</span>
+            ) : null}
+            {" | "}
             Growth since 1980: {data.context.revenueGrowthSince1980}x
           </p>
           <div className="space-y-6">
@@ -175,6 +238,10 @@ export function FederalFinanceDashboard() {
               ];
               const color = colors[index % colors.length];
               
+              const srdVal = srdRevenueMap[key] ?? 0;
+              const baselineTotal = data.headline.totalRevenue;
+              const baselinePct = (value.amount / baselineTotal) * 100;
+              const srdPct = (srdVal / baselineTotal) * 100;
               return (
                 <div key={key} className="relative">
                   <div className="flex justify-between items-start mb-2">
@@ -193,11 +260,17 @@ export function FederalFinanceDashboard() {
                       <div className="text-xs text-gray-500">of total</div>
                     </div>
                   </div>
-                  <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                  <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden relative">
                     <div
-                      className={`bg-linear-to-r ${color.bg} h-3 rounded-full transition-all duration-1000 ease-out`}
-                      style={{ width: `${value.percentage}%` }}
+                      className={`h-3 rounded-full transition-all duration-1000 ease-out ${color.bg}`}
+                      style={{ width: `${baselinePct}%` }}
                     />
+                    {srdVal > 0 ? (
+                      <div
+                        className={`absolute top-0 h-3 rounded-full bg-white/10`} 
+                        style={{ left: `${baselinePct}%`, width: `${srdPct}%` }}
+                      />
+                    ) : null}
                   </div>
                 </div>
               );
@@ -211,7 +284,11 @@ export function FederalFinanceDashboard() {
             <span className="text-red-400">↓</span> Spending Categories
           </h3>
           <p className="text-sm text-gray-400 mb-6">
-            Total: {formatCurrency(data.headline.totalSpending)} | 
+            Total: {formatCurrency(data.headline.totalSpending)}
+            {showSRD && year === 2026 ? (
+              <span className="ml-3 text-sm text-amber-300">→ Post‑SRD: {formatCurrency(postTotalSpending)}</span>
+            ) : null}
+            {" | "}
             Growth since 1980: {data.context.spendingGrowthSince1980}x
           </p>
           <div className="space-y-6">
@@ -226,6 +303,10 @@ export function FederalFinanceDashboard() {
               ];
               const color = colors[index % colors.length];
               
+              const srdVal = srdSpendingMap[key] ?? 0; // negative for moderation
+              const baselineTotal = data.headline.totalSpending;
+              const baselinePct = (value.amount / baselineTotal) * 100;
+              const srdPct = (Math.abs(srdVal) / baselineTotal) * 100;
               return (
                 <div key={key} className="relative">
                   <div className="flex justify-between items-start mb-2">
@@ -244,11 +325,21 @@ export function FederalFinanceDashboard() {
                       <div className="text-xs text-gray-500">of total</div>
                     </div>
                   </div>
-                  <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                  <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden relative">
                     <div
-                      className={`bg-linear-to-r ${color.bg} h-3 rounded-full transition-all duration-1000 ease-out`}
-                      style={{ width: `${value.percentage}%` }}
+                      className={`h-3 rounded-full transition-all duration-1000 ease-out ${color.bg}`}
+                      style={{ width: `${baselinePct}%` }}
                     />
+                    {srdVal < 0 ? (
+                      <div
+                        className={`absolute top-0 h-3 rounded-full`} 
+                        style={{
+                          left: `${Math.max(0, baselinePct - srdPct)}%`,
+                          width: `${srdPct}%`,
+                          backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 4px, transparent 4px 8px)'
+                        }}
+                      />
+                    ) : null}
                   </div>
                 </div>
               );
@@ -342,7 +433,7 @@ export function FederalFinanceDashboard() {
 
       {/* Historical Trend Chart */}
       <section className="p-6 rounded-2xl bg-gray-900/50 border border-white/10">
-        <h3 className="text-2xl font-bold mb-6">Revenue vs. Spending Trend (1980-2024)</h3>
+        <h3 className="text-2xl font-bold mb-6">Revenue vs. Spending Trend (1980-{lastYear})</h3>
         <p className="text-gray-400 mb-6 text-sm">
           Adjusted for inflation. Last budget surplus: {data.context.lastSurplusYear}. 
           Mandatory spending now represents {data.context.mandatorySpendingPercent}% of the budget, up from 45% in 1980.
@@ -385,12 +476,10 @@ export function FederalFinanceDashboard() {
               <polygon
                 fill="url(#deficitGradient)"
                 points={[
-                  ...data.historicalTrends.map((d, i) => 
-                    `${(i * 1000) / 9},${300 - (d.spending * 300) / 9}`
-                  ),
-                  ...data.historicalTrends.map((d, i) => 
-                    `${((9 - i) * 1000) / 9},${300 - (data.historicalTrends[9 - i].revenue * 300) / 9}`
-                  ).reverse()
+                  ...trends.map((d, i) => `${(i * 1000) / denom},${yFor(d.spending)}`),
+                  ...trends
+                    .map((d, i) => `${((denom - i) * 1000) / denom},${yFor(trends[denom - i].revenue)}`)
+                    .reverse(),
                 ].join(" ")}
               />
               
@@ -401,9 +490,7 @@ export function FederalFinanceDashboard() {
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                points={data.historicalTrends
-                  .map((d, i) => `${(i * 1000) / 9},${300 - (d.revenue * 300) / 9}`)
-                  .join(" ")}
+                points={trends.map((d, i) => `${(i * 1000) / denom},${yFor(d.revenue)}`).join(" ")}
               />
               
               {/* Spending line (red) */}
@@ -413,9 +500,7 @@ export function FederalFinanceDashboard() {
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                points={data.historicalTrends
-                  .map((d, i) => `${(i * 1000) / 9},${300 - (d.spending * 300) / 9}`)
-                  .join(" ")}
+                points={trends.map((d, i) => `${(i * 1000) / denom},${yFor(d.spending)}`).join(" ")}
               />
               
               {/* Data points */}
@@ -423,8 +508,8 @@ export function FederalFinanceDashboard() {
                 <g key={d.year}>
                   {/* Revenue point */}
                   <circle
-                    cx={(i * 1000) / 9}
-                    cy={300 - (d.revenue * 300) / 9}
+                    cx={(i * 1000) / denom}
+                    cy={yFor(d.revenue)}
                     r="5"
                     fill="#10b981"
                     stroke="#fff"
@@ -432,8 +517,8 @@ export function FederalFinanceDashboard() {
                   />
                   {/* Spending point */}
                   <circle
-                    cx={(i * 1000) / 9}
-                    cy={300 - (d.spending * 300) / 9}
+                    cx={(i * 1000) / denom}
+                    cy={yFor(d.spending)}
                     r="5"
                     fill="#ef4444"
                     stroke="#fff"
@@ -469,20 +554,20 @@ export function FederalFinanceDashboard() {
         </div>
         
         {/* Key insights */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20">
             <p className="text-xs text-gray-400 mb-1">Peak Revenue Year</p>
-            <p className="text-2xl font-bold text-green-400">2024</p>
-            <p className="text-sm text-gray-400">{formatCurrency(data.headline.totalRevenue)}</p>
+            <p className="text-2xl font-bold text-green-400">{peakRevenue.year}</p>
+            <p className="text-sm text-gray-400">{formatCurrency(peakRevenue.value)}{showSRD && year === 2026 ? (<span className="ml-2 text-emerald-300"> (Post‑SRD +{formatCurrency(revenueLift)})</span>) : null}</p>
           </div>
           <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20">
             <p className="text-xs text-gray-400 mb-1">Peak Spending Year</p>
-            <p className="text-2xl font-bold text-red-400">2020</p>
-            <p className="text-sm text-gray-400">$8.3T (COVID-19)</p>
+            <p className="text-2xl font-bold text-red-400">{peakSpending.year}</p>
+            <p className="text-sm text-gray-400">{formatCurrency(peakSpending.value)}</p>
           </div>
           <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
             <p className="text-xs text-gray-400 mb-1">Current Deficit</p>
-            <p className="text-2xl font-bold text-orange-400">{formatCurrency(data.headline.budgetDeficit)}</p>
+            <p className="text-2xl font-bold text-orange-400">{formatCurrency(data.headline.budgetDeficit)}{showSRD && year === 2026 ? (<span className="ml-2 text-amber-300"> → {formatCurrency(postDeficit)}</span>) : null}</p>
             <p className="text-sm text-gray-400">Down from $3T in 2020-21</p>
           </div>
         </div>
