@@ -38,16 +38,13 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-3 items-center">
               <div className="flex items-center gap-2 text-sm justify-start">
                 <Mail className="w-4 h-4 text-cyan-100" aria-hidden />
-                <Link href="/privacy" className="text-cyan-100 hover:text-white hover:underline">Privacy Policy</Link>
+                <a href="mailto:privacy@phnxai.com" className="text-cyan-100 hover:text-white hover:underline">privacy@phnxai.com</a>
               </div>
 
-              <div>
+              <div className="text-center">
                 <p className="neural-gradient font-semibold text-center mb-1">Get in touch to propose projects, partnerships, or implementation support — we'll help move ideas to production.<br />
                   <a href="mailto:projects@phnxai.com" className="underline">projects@phnxai.com</a>
                 </p>
-                <div className="neural-gradient text-xs md:text-sm font-semibold tracking-wide select-none text-center">
-                  © 2026 Aegis Civics Built By Phnx Ai. All rights reserved.
-                </div>
               </div>
 
               <div className="flex flex-col items-end gap-3 text-sm">
@@ -69,6 +66,23 @@ export default function RootLayout({
                 <div>
                   <Link href="/contact" className="text-cyan-100 hover:text-white hover:underline">Contact</Link>
                 </div>
+
+                <div className="mt-2 flex flex-col items-end gap-1">
+                  <div className="neural-gradient font-semibold">
+                    <Link href="/privacy#privacy" className="hover:underline">Privacy Policy</Link>
+                  </div>
+                  <div className="neural-gradient font-semibold">
+                    <Link href="/privacy#cookies" className="hover:underline">Cookie Policy</Link>
+                  </div>
+                  <div className="neural-gradient font-semibold">
+                    <Link href="/privacy#terms" className="hover:underline">Terms of Service</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full mt-6">
+              <div className="max-w-7xl mx-auto px-4 text-center neural-gradient text-xs md:text-sm font-semibold tracking-wide select-none">
+                © 2026 Aegis Civics Built By Phnx Ai. All rights reserved.
               </div>
             </div>
           </footer>

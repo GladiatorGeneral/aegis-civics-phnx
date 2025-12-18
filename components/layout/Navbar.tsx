@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Users, DollarSign, BarChart3, Sparkles, Shield } from "lucide-react";
+import { Home, Users, DollarSign, BarChart3, Sparkles, Shield, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export function Navbar() {
@@ -33,17 +33,24 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-linear-to-br from-blue-500 to-purple-500">
-              <BarChart3 className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-bold text-xl">
-              <span className="bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                American Scale
+          {/* Logo + Donate Button */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-linear-to-br from-blue-500 to-purple-500">
+                <BarChart3 className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-bold text-xl">
+                <span className="bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  American Scale
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+
+            <Link href="/donate" aria-label="Donate" className="inline-flex items-center px-3 py-2 rounded-md text-sm font-medium" style={{background: "linear-gradient(90deg,#ffd4e6 0%,#ff8fbf 100%)", color: "#fff"}}>
+              <MapPin className="w-4 h-4 mr-2" />
+              Donate
+            </Link>
+          </div>
 
           {/* Nav Links */}
           <div className="flex items-center gap-1 relative">

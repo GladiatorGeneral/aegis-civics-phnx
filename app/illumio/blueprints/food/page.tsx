@@ -40,21 +40,26 @@ export default function FoodSecurityPage() {
         <div className="mb-6 flex justify-center">
           <div className="overflow-x-auto w-full max-w-3xl">
             <pre className="whitespace-pre font-mono text-sm bg-gray-900/30 border border-white/6 rounded-lg p-4 text-center">{`
-│               ENTRANCE & ADMINISTRATION         │
-│  Office │ Maintenance │ Processing │ Cold Storage│
-├─────────────────────────────────────────────────┤
-│             20,000 SQ FT GREENHOUSE             │
-│  Tomatoes │ Berries │ Peppers │ Herbs │ Microgreens│
-├─────────────────────────────────────────────────┤
-│             100 ACRES CONVENTIONAL FARMING      │
-│   40ac Corn  │ 30ac Soybeans │ 20ac Wheat       │
-│   5ac Pumpkins │ 5ac Cover Crops (Carbon Credits)│
-├─────────────────────────────────────────────────┤
-│              30 ACRES WATER FARMING             │
-│Freshwater: Tilapia, Barramundi, Prawns          │
-│Saltwater: Shrimp, Oysters, Striped Bass         │
-│Seaweed: Kelp, Sea Lettuce, Gracilaria           │
-└─────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                 ENTRANCE & ADMINISTRATION                   │
+├─────────────────────────────────────────────────────────────┤
+│  Office  │  Maintenance  │  Processing  │  Cold Storage     │
+├─────────────────────────────────────────────────────────────┤
+│                20,000 SQ FT GREENHOUSE                      │
+├─────────────────────────────────────────────────────────────┤
+│ Tomatoes │   Berries   │   Peppers   │   Herbs  │Microgreens│
+├─────────────────────────────────────────────────────────────┤
+│               100 ACRES CONVENTIONAL FARMING                │
+├─────────────────────────────────────────────────────────────┤
+│  40ac Corn  │ 30ac Soybeans  │  20ac Wheat                  │
+│  5ac Pumpkins  │  5ac Cover Crops (Carbon Credits)          │
+├─────────────────────────────────────────────────────────────┤
+│                 30 ACRES WATER FARMING                      │
+├─────────────────────────────────────────────────────────────┤
+│  Freshwater: Tilapia, Barramundi, Prawns                   │
+│  Saltwater: Shrimp, Oysters, Striped Bass                  │
+│  Seaweed: Kelp, Sea Lettuce, Gracilaria                    │
+└─────────────────────────────────────────────────────────────┘
 `}</pre>
           </div>
         </div>
