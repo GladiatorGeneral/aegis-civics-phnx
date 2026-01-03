@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "American Scale | Leadership & Finance Intelligence",
+  title: "PhnxAI | Leadership & Finance Intelligence",
   description: "Patriotic Accountability Matrix scoring legislation and leaders on the For All Americans principle",
 };
 

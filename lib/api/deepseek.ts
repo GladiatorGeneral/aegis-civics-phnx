@@ -192,7 +192,7 @@ Respond in JSON format:
     const messages: DeepSeekMessage[] = [
       {
         role: 'system',
-        content: `You are scoring US legislation on the "American Scale" which measures:
+        content: `You are scoring US legislation on the "PhnxAI" which measures:
 1. BENEFIT SCOPE (0-100): How many Americans benefit? Low/middle/high income? Geographic reach?
 2. FOREIGN IMPACT (0-100): Does money stay in America? US jobs? Domestic suppliers?
 3. TRANSPARENCY (0-100): Clear provisions? Public oversight? Minimal earmarks?
@@ -201,7 +201,7 @@ Higher scores = more pro-American. Be objective and data-driven.`,
       },
       {
         role: 'user',
-        content: `Score this bill on the American Scale:
+        content: `Score this bill on the PhnxAI:
 
 ${billText.substring(0, 6000)}
 

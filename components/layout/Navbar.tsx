@@ -2,6 +2,7 @@
 
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Home, Users, DollarSign, BarChart3, Sparkles, Shield, MapPin } from "lucide-react";
 import { useState } from "react";
@@ -36,12 +37,16 @@ export function Navbar() {
           {/* Logo + Donate Button */}
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-linear-to-br from-blue-500 to-purple-500">
-                <BarChart3 className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-xl">
+              <Image 
+                src="/logo.png" 
+                alt="PhnxAI Logo" 
+                width={48} 
+                height={48} 
+                className="rounded-lg"
+              />
+              <span className="font-bold text-3xl">
                 <span className="bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  American Scale
+                  PhnxAI
                 </span>
               </span>
             </Link>

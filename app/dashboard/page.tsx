@@ -20,7 +20,7 @@ export default async function DashboardPage() {
         <div className="container mx-auto relative">
           <h1 className="text-5xl font-bold mb-3">
             <span className="bg-linear-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              American Scale
+              PhnxAI
             </span>
             <span className="text-white ml-3">Dashboard</span>
           </h1>

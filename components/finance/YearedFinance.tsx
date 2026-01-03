@@ -9,7 +9,8 @@ export default function YearedFinance() {
 
   return (
     <div>
-      <div className="mb-6">
+      <div className="mb-6 flex items-center">
+        <span className="mr-3 text-gray-300 text-sm">Select a year for analysis:</span>
         <label htmlFor="year" className="sr-only">Fiscal Year</label>
         <select
           id="year"

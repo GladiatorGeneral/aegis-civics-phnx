@@ -1,5 +1,6 @@
 "use client";
 import React, {useState} from "react";
+import { QRCodeSVG } from "qrcode.react";
 
 type Props = {
   title: string;
@@ -23,19 +24,19 @@ export default function DonationCard({title, address, uri, explorer, note}: Prop
     }
   }
 
-  const qr = `https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=${encodeURIComponent(toCopy)}`;
-
   return (
     <div className="bg-gray-900/60 border border-white/6 rounded-lg p-4">
       <h3 className="font-semibold mb-2">{title}</h3>
       {note && <div className="text-sm text-gray-300 mb-3">{note}</div>}
 
-      <div className="flex gap-4 items-start">
-        <img src={qr} alt="qr" width={140} height={140} className="rounded-md" />
+      <div className="flex flex-col xl:flex-row gap-4 items-start">
+        <div className="bg-white p-2 rounded-md shrink-0 mx-auto xl:mx-0">
+          <QRCodeSVG value={toCopy} size={120} />
+        </div>
 
-        <div className="flex-1">
+        <div className="flex-1 min-w-0 w-full">
           <div className="bg-gray-800 p-3 rounded font-mono text-sm break-all">{toCopy}</div>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-3 flex flex-wrap gap-2">
             <button onClick={handleCopy} className="px-3 py-2 rounded-md bg-white/6 hover:bg-white/10">
               {copied ? "Copied" : "Copy address"}
             </button>

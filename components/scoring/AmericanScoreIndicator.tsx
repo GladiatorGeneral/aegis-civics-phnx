@@ -101,7 +101,7 @@ export function AmericanScoreIndicator({
           <div className="p-4 space-y-3">
             <h4 className="font-bold flex items-center gap-2">
               <Info className="w-4 h-4" />
-              American Scale Analysis
+              PhnxAI Analysis
             </h4>
 
             <div className="space-y-2 text-sm text-gray-400">

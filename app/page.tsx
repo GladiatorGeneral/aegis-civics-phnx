@@ -7,7 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-slate-900 text-slate-100 p-8">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-extrabold mb-2">American Scale — Home</h1>
+          <h1 className="text-4xl font-extrabold mb-2">PhnxAI — Home</h1>
           <p className="text-slate-300">Quick access to core dashboards and Project Phnx blueprints.</p>
         </header>
 
@@ -63,6 +63,40 @@ export default function Home() {
           </Link>
         </section>
       </div>
+      {/* 12 SRDs overview (multicolored with icons) */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto mb-6 text-center">
+          <h2 className="text-2xl font-bold">12 Systemic Renewal Directorates (SRDs)</h2>
+          <p className="text-slate-300 text-sm">High-level overview of the 12 SRDs that make up Project Phnx's renewal architecture.</p>
+        </div>
+
+        {(() => {
+          const names = [
+            'Digital Equity & Infrastructure',
+            'Education & Workforce Development',
+            'Healthcare System Reengineering',
+            'Food Security & Agriculture',
+            'Affordable Childcare & Family Support',
+            'Adolescent Development & Safety',
+            'National Infrastructure',
+            'Dynamic Wage & Housing Stability',
+            'Fiscal Responsibility & Transparency',
+            'State & Local Empowerment',
+            'Renewable Energy & Grid Independence',
+            'Civic Engagement & Democracy'
+          ];
+
+          return (
+            <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {names.map((name) => (
+                <div key={name} className="p-4 rounded-lg bg-slate-800/60 border border-white/6 text-sm text-slate-100">
+                  <div className="font-semibold">{name}</div>
+                </div>
+              ))}
+            </div>
+          );
+        })()}
+      </section>
       {/* FY27–FY28 animated tracks */}
       <section className="container mx-auto px-4 py-12">
         <TwoYearAnimatedTracks />

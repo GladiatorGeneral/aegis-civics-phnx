@@ -1,5 +1,6 @@
 import DonationCard from "../../components/ui/DonationCard";
 import styles from "./donate.module.css";
+import Image from "next/image";
 
 export const metadata = {
   title: "Donate",
@@ -8,10 +9,11 @@ export const metadata = {
 
 export default function DonatePage() {
   // Replace these placeholders with your real addresses / links
-  const PAYPAL_LINK = "https://www.paypal.com/donate?hosted_button_id=REPLACE_WITH_YOUR_ID";
-  const BTC_ADDRESS = "bc1qREPLACE_THIS_WITH_YOUR_BTC_ADDRESS";
-  const ETH_ADDRESS = "0xREPLACE_THIS_WITH_YOUR_ETH_ADDRESS";
-  const USDC_ADDRESS = "0xREPLACE_THIS_WITH_YOUR_USDC_CONTRACT_OR_WALLET";
+  const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/BUS97EF56K3FJ";
+  const OPEN_COLLECTIVE_LINK = "https://opencollective.com/phnxcore";
+  const BTC_ADDRESS = "bc1qewx9w4t8r2dfm3lk0ff5luc2d5wuq7566k9zch";
+  const ETH_ADDRESS = "0xEB8218487dEb5FD9A5acA3E959EBb098b90c1A67";
+  const USDC_ADDRESS = "0xEB8218487dEb5FD9A5acA3E959EBb098b90c1A67";
 
   return (
     <main className={`${styles.page}`}>
@@ -20,7 +22,16 @@ export default function DonatePage() {
         {/* content */}
         {/* Hero */}
         <section className={`text-center mb-6 relative ${styles.heroLift}`} style={{zIndex: 3}}>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">Support American Scale</h1>
+          <div className="flex justify-center mb-6">
+            <Image 
+              src="/logo.png" 
+              alt="PhnxAI Logo" 
+              width={120} 
+              height={120} 
+              className="rounded-full shadow-lg"
+            />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">Support PhnxAI</h1>
           <p className="text-gray-300 mb-6">Your contribution helps keep development, data analysis, and public resources available to everyone.</p>
 
           <div className="flex items-center justify-center gap-4">
@@ -29,7 +40,7 @@ export default function DonatePage() {
               Donate with PayPal
             </a>
 
-            <a href="#crypto" className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-medium border border-white/10 text-white/90 hover:text-white" style={{background: "rgba(255,255,255,0.02)"}}>
+            <a href="#crypto" className="inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity" style={{background: "linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%)"}}>
               See crypto options
             </a>
           </div>
@@ -45,10 +56,10 @@ export default function DonatePage() {
           </div>
 
           <div className="bg-gray-900/60 border border-white/6 p-6 rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">Unified checkout</h2>
-            <p className="text-sm text-gray-300 mb-4">Prefer a single external processor? Add your Coinbase Commerce, Open Collective, or Buy Me a Coffee URL here.</p>
-            <a href="#" className="inline-block px-5 py-3 rounded-md font-semibold" style={{background: "linear-gradient(90deg,#ffd4e6 0%,#ff8fbf 100%)", color: "#111"}}>Open unified checkout</a>
-            <div className="text-xs text-gray-400 mt-3">Tell me which processor you want and I can wire it up.</div>
+            <h2 className="text-xl font-semibold mb-2">Open Collective</h2>
+            <p className="text-sm text-gray-300 mb-4">Support us transparently through Open Collective. See exactly how your funds are used to drive the project forward.</p>
+            <a href={OPEN_COLLECTIVE_LINK} target="_blank" rel="noreferrer" className="inline-block px-5 py-3 rounded-md font-semibold" style={{background: "linear-gradient(90deg,#ffd4e6 0%,#ff8fbf 100%)", color: "#111"}}>Donate on Open Collective</a>
+            <div className="text-xs text-gray-400 mt-3">Transparent funding for open source projects.</div>
           </div>
         </section>
 
@@ -63,10 +74,6 @@ export default function DonatePage() {
           <div className="text-xs text-gray-400 mt-3">Replace placeholder addresses with your real wallet addresses before publishing.</div>
         </section>
       </div>
-
-      {/* decorative blobs (positioned after content so they don't push it down) */}
-      <div aria-hidden className={styles.blobPink} style={{ top: '-80px' }} />
-      <div aria-hidden className={styles.blobYellow} style={{ top: '-40px' }} />
     </main>
   );
 }

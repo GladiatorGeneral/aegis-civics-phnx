@@ -1,4 +1,4 @@
-# American Scale Dashboard
+# PhnxAI Dashboard
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.0.8-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)

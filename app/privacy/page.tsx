@@ -175,7 +175,7 @@ export default function PrivacyPage() {
         <p>Permitted uses include researching legislative information and using AI tools for personal understanding. Prohibited conduct includes impersonation, harassment, submitting false information, interfering with platform operations, using automated systems without approval, reverse engineering, commercial use without permission, and advocating illegal activity.</p>
 
         <h3 className="mt-8 mb-2">5. AI Services Disclaimer</h3>
-        <p>AI outputs are informational only—not legal advice—and accuracy is not guaranteed. Human judgment is required. "American Scale" scores are algorithmic assessments and should be considered alongside other sources.</p>
+        <p>AI outputs are informational only—not legal advice—and accuracy is not guaranteed. Human judgment is required. "PhnxAI" scores are algorithmic assessments and should be considered alongside other sources.</p>
 
         <h3 className="mt-8 mb-2">6. User Content</h3>
         <p>You retain ownership of content you submit but grant us a license to use and analyze it for Platform operations. You must not submit infringing, illegal, or malicious content.</p>
