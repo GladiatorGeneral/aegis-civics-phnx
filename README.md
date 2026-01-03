@@ -10,7 +10,7 @@ A comprehensive civic intelligence platform for tracking US government leaders, 
 
 ### 📊 Leadership Dashboard
 - **Leader Categorization**: Browse senators, representatives, governors, and mayors in collapsible card sections
-- **American Score System**: Proprietary scoring algorithm rating leaders on:
+- **PhnxAI Score System**: Proprietary scoring algorithm rating leaders on:
   - **Benefit Scope** (0-100): Who benefits from their voting record
   - **Foreign Impact** (0-100): Domestic vs. foreign resource allocation
   - **Transparency** (0-100): Oversight and accountability measures
@@ -33,7 +33,7 @@ A comprehensive civic intelligence platform for tracking US government leaders, 
 
 ### 🤖 AI-Powered Features
 - **Bill Analysis**: DeepSeek API integration for low-cost bill text analysis (~$0.14 per million tokens vs OpenAI ~$2.50)
-- **Batch Processing**: Analyze multiple bills simultaneously with American Score calculations
+- **Batch Processing**: Analyze multiple bills simultaneously with PhnxAI Score calculations
 - **Infrastructure Detection**: AI extracts infrastructure provisions and cost estimates from legislation
 
 ### 🗄️ Database & Caching
