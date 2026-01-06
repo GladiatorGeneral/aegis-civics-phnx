@@ -57,22 +57,59 @@ export function generateVotingRecord(
   score: { overall: number; breakdown: { benefitScope: number; foreignImpact: number; transparency: number } }
 ): VotingAnalysis[] {
   const bills = [
-    { id: 'hr-3684', title: 'Infrastructure Investment and Jobs Act', weight: 'high' },
-    { id: 'hr-5376', title: 'Build Back Better Act', weight: 'high' },
-    { id: 's-1260', title: 'CHIPS and Science Act', weight: 'high' },
-    { id: 'hr-1319', title: 'American Rescue Plan', weight: 'high' },
-    { id: 'hr-3755', title: 'Women\'s Health Protection Act', weight: 'medium' },
-    { id: 's-2938', title: 'Postal Service Reform Act', weight: 'medium' },
-    { id: 'hr-4521', title: 'America COMPETES Act', weight: 'medium' },
-    { id: 's-1375', title: 'Violence Against Women Act', weight: 'medium' },
-    { id: 'hr-8404', title: 'Respect for Marriage Act', weight: 'low' },
-    { id: 'hr-7900', title: 'National Defense Authorization Act', weight: 'high' },
+    { id: 'hr-8921', title: 'AI Accountability & Safety Act of 2025', weight: 'high' },
+    { id: 's-4012', title: 'National Water Infrastructure Renewal Act', weight: 'high' },
+    { id: 'hr-7834', title: 'Food Supply Chain Resilience Bill', weight: 'medium' },
+    { id: 's-3891', title: 'Digital Equity Access Program', weight: 'medium' },
+    { id: 'hr-9102', title: 'Healthcare Modernization & Cost Reduction Act', weight: 'high' },
+    { id: 's-4405', title: 'FY2026 Supplemental Appropriations', weight: 'low' },
+    { id: 'hr-8550', title: 'Grid Independence & Security Act', weight: 'high' },
+    { id: 's-3999', title: 'Veteran Housing Guarantee Act', weight: 'medium' },
+    { id: 'hr-9211', title: 'Federal Education Modernization Bill', weight: 'medium' },
+    { id: 's-4120', title: 'Sovereign Debt Transparency Act', weight: 'low' },
   ];
   
   const votePattern = party === 'Democrat' ? 0.7 : party === 'Republican' ? 0.3 : 0.5;
   
   return bills.slice(0, 6 + Math.floor(Math.random() * 4)).map((bill) => {
-    const baseScore = score.overall + (Math.random() * 20 - 10);
+    // Advanced Scoring: Analyze bill title for keywords to determine scores instead of pure random
+    const lowerTitle = bill.title.toLowerCase();
+    
+    let benefitMod = 0;
+    let foreignMod = 0;
+    let transpMod = 0;
+
+    // Domestic Benefit Signals
+    if (lowerTitle.includes('infrastructure') || lowerTitle.includes('water') || lowerTitle.includes('grid')) benefitMod += 15;
+    if (lowerTitle.includes('education') || lowerTitle.includes('housing') || lowerTitle.includes('food')) benefitMod += 12;
+    if (lowerTitle.includes('healthcare') || lowerTitle.includes('modernization')) benefitMod += 10;
+    
+    // Foreign/Domestic Split Signals
+    if (lowerTitle.includes('foreign') || lowerTitle.includes('sovereign') || lowerTitle.includes('defense')) {
+      foreignMod += 25; // High foreign impact (bad for domestic focus)
+      benefitMod -= 5; 
+    } else {
+      foreignMod -= 10; // Mostly domestic
+    }
+
+    // Transparency Signals
+    if (lowerTitle.includes('accountability') || lowerTitle.includes('transparency')) transpMod += 20;
+    if (lowerTitle.includes('supplemental') || lowerTitle.includes('appropriations')) transpMod -= 10; // Often hidden pork
+    
+    // Calculate base scores with modifiers
+    const benefitScore = Math.min(100, Math.max(10, score.breakdown.benefitScope + benefitMod + (Math.random() * 10 - 5)));
+    const foreignAvScore = Math.min(100, Math.max(10, (100 - score.breakdown.foreignImpact) + foreignMod)); // Invert: Low foreign impact is "good" for domestic focus score? 
+    // Actually, let's keep it simple: "Domestic Focus" metric. 
+    // If the bill is Foreign, Domestic Focus is Low.
+    const domesticFocusScore = lowerTitle.includes('foreign') || lowerTitle.includes('defense') 
+        ? 30 + (Math.random() * 20) 
+        : 85 + (Math.random() * 15 - 5);
+        
+    const transparencyScore = Math.min(100, Math.max(10, score.breakdown.transparency + transpMod + (Math.random() * 10 - 5)));
+    
+    // Overall is average of three
+    const computedOverall = Math.round((benefitScore + domesticFocusScore + transparencyScore) / 3);
+
     const vote = Math.random() < votePattern ? 'yea' : 'nay';
     
     return {
@@ -80,11 +117,11 @@ export function generateVotingRecord(
       billTitle: bill.title,
       vote: vote as 'yea' | 'nay',
       americanScore: {
-        overall: Math.min(100, Math.max(20, Math.round(baseScore))),
+        overall: computedOverall,
         breakdown: {
-          benefitScope: Math.min(100, Math.max(20, score.breakdown.benefitScope + (Math.random() * 10 - 5))),
-          foreignImpact: Math.min(100, Math.max(20, score.breakdown.foreignImpact + (Math.random() * 10 - 5))),
-          transparency: Math.min(100, Math.max(20, score.breakdown.transparency + (Math.random() * 10 - 5)))
+          benefitScope: Math.round(benefitScore),
+          foreignImpact: Math.round(domesticFocusScore), // Renamed conceptual logic to "Domestic Focus"
+          transparency: Math.round(transparencyScore)
         }
       },
       impact: (bill.weight as 'high' | 'medium' | 'low')
@@ -141,8 +178,7 @@ export function generateNextElection(type: GovernmentLeader['type']): string {
   
   if (type === 'mayor') {
     // Mayors: vary, typically 4 years
-    const nextElections = [2025, 2026, 2027, 2028, 2029];
-    return nextElections[Math.floor(Math.random() * 5)].toString();
+    return '2029';
   }
   
   return '2026';

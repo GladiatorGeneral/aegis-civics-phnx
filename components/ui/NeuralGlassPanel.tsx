@@ -8,6 +8,7 @@ interface NeuralGlassPanelProps {
   intensity?: "low" | "medium" | "high";
   hoverable?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 export function NeuralGlassPanel({
@@ -15,6 +16,7 @@ export function NeuralGlassPanel({
   intensity = "medium",
   hoverable = true,
   className = "",
+  onClick,
 }: NeuralGlassPanelProps) {
   const intensityMap = {
     low: "bg-gray-900/20 backdrop-blur-md",
@@ -26,6 +28,7 @@ export function NeuralGlassPanel({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
+      onClick={onClick}
       whileHover={
         hoverable
           ? {

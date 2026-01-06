@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { AmericanScoreIndicator } from "@/components/scoring/AmericanScoreIndicator";
 import { PoliticianAmericanScore } from "@/components/scoring/PoliticianAmericanScore";
@@ -19,11 +20,13 @@ import {
 interface LeaderCardProps {
   leader: GovernmentLeader;
   compact?: boolean;
+  onClick?: () => void;
 }
 
-export function LeaderCard({ leader, compact = false }: LeaderCardProps) {
+export function LeaderCard({ leader, compact = false, onClick }: LeaderCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [showAmericanScore, setShowAmericanScore] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const americanScore = useMemo(
     () => calculateLeaderAmericanScore(leader.votingRecord ?? []),
@@ -43,17 +46,44 @@ export function LeaderCard({ leader, compact = false }: LeaderCardProps) {
   };
 
   return (
-    <NeuralGlassPanel hoverable intensity="medium">
+    <NeuralGlassPanel 
+      hoverable 
+      intensity="medium" 
+      onClick={onClick}
+      className={onClick ? "cursor-pointer" : ""}
+    >
       <div className="space-y-4">
         <div className="flex items-start gap-4">
           {/* Leadership Stats Badge - Replacing Avatar */}
-          <div className="relative">
-            <div className="w-16 h-16 rounded-xl border-2 border-white/20 bg-linear-to-br from-slate-800 to-slate-900 flex flex-col items-center justify-center">
-              <div className="text-2xl font-bold text-white">{americanScore.score}</div>
-              <div className="text-[9px] text-gray-400 uppercase tracking-wide">Score</div>
-            </div>
+          <div className="relative group">
+            {leader.imageUrl && !imageError ? (
+              <div className="w-16 h-16 rounded-xl border-2 border-white/20 bg-slate-900 overflow-hidden relative">
+                <Image 
+                  src={leader.imageUrl} 
+                  alt={leader.name} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                  sizes="64px"
+                  unoptimized
+                  onError={() => setImageError(true)}
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            ) : (
+              <div className="w-16 h-16 rounded-xl border-2 border-white/20 bg-linear-to-br from-slate-800 to-slate-900 flex flex-col items-center justify-center">
+                <div className="text-2xl font-bold text-white">{americanScore.score}</div>
+                <div className="text-[9px] text-gray-400 uppercase tracking-wide">Score</div>
+              </div>
+            )}
+            
+            {leader.imageUrl && !imageError && (
+              <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-slate-900 border-2 border-gray-700 flex flex-col items-center justify-center shadow-lg z-10">
+                <span className="text-[9px] font-bold text-white leading-tight">{americanScore.score}</span>
+              </div>
+            )}
+
             <div
-              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-linear-to-br ${partyColors[leader.party]} border-2 border-gray-900 flex items-center justify-center`}
+              className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-linear-to-br ${partyColors[leader.party]} border-2 border-gray-900 flex items-center justify-center z-10 shadow-lg`}
             >
               <span className="text-white text-[10px] font-bold">
                 {leader.party === "Democrat" ? "D" : leader.party === "Republican" ? "R" : "I"}

@@ -67,9 +67,9 @@ export default function DonatePage() {
         <section id="crypto" className="mb-6">
           <h2 className="text-2xl font-semibold mb-4">Cryptocurrency</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <DonationCard title="Bitcoin (BTC)" address={BTC_ADDRESS} explorer={"https://www.blockchain.com/btc/address/" + BTC_ADDRESS} />
-            <DonationCard title="Ethereum (ETH)" address={ETH_ADDRESS} explorer={"https://etherscan.io/address/" + ETH_ADDRESS} />
-            <DonationCard title="USDC (ERC-20)" address={USDC_ADDRESS} note={"USDC on Ethereum — paste into your wallet or use the QR."} explorer={"https://etherscan.io/address/" + USDC_ADDRESS} />
+            <DonationCard title="Bitcoin (BTC)" address={BTC_ADDRESS} /* explorer={"https://www.blockchain.com/btc/address/" + BTC_ADDRESS} */ />
+            <DonationCard title="Ethereum (ETH)" address={ETH_ADDRESS} /* explorer={"https://etherscan.io/address/" + ETH_ADDRESS} */ />
+            <DonationCard title="USDC (ERC-20)" address={USDC_ADDRESS} note={"USDC on Ethereum — paste into your wallet or use the QR."} /* explorer={"https://etherscan.io/address/" + USDC_ADDRESS} */ />
           </div>
           <div className="text-xs text-gray-400 mt-3">Replace placeholder addresses with your real wallet addresses before publishing.</div>
         </section>

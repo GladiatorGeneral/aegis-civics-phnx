@@ -7,9 +7,10 @@ import { Users, Building2, Home, Briefcase } from "lucide-react";
 
 interface LeaderCategoryDashboardProps {
   leaders: GovernmentLeader[];
+  onSelectLeader?: (leader: GovernmentLeader) => void;
 }
 
-export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProps) {
+export function LeaderCategoryDashboard({ leaders, onSelectLeader }: LeaderCategoryDashboardProps) {
   // Add safety check for undefined leaders
   if (!leaders || !Array.isArray(leaders)) {
     console.error('LeaderCategoryDashboard received invalid leaders:', leaders);
@@ -48,7 +49,11 @@ export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProp
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {senators.map((leader: GovernmentLeader) => (
-            <LeaderCard key={leader.id} leader={leader} />
+            <LeaderCard 
+              key={leader.id} 
+              leader={leader} 
+              onClick={() => onSelectLeader?.(leader)}
+            />
           ))}
         </div>
         {senators.length === 0 && (
@@ -68,7 +73,11 @@ export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProp
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {representatives.map((leader: GovernmentLeader) => (
-            <LeaderCard key={leader.id} leader={leader} />
+            <LeaderCard 
+              key={leader.id} 
+              leader={leader} 
+              onClick={() => onSelectLeader?.(leader)}
+            />
           ))}
         </div>
         {representatives.length === 0 && (
@@ -88,7 +97,11 @@ export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProp
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {governors.map((leader: GovernmentLeader) => (
-            <LeaderCard key={leader.id} leader={leader} />
+            <LeaderCard 
+              key={leader.id} 
+              leader={leader} 
+              onClick={() => onSelectLeader?.(leader)}
+            />
           ))}
         </div>
         {governors.length === 0 && (
@@ -108,7 +121,11 @@ export function LeaderCategoryDashboard({ leaders }: LeaderCategoryDashboardProp
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {mayors.map((leader: GovernmentLeader) => (
-            <LeaderCard key={leader.id} leader={leader} />
+            <LeaderCard 
+              key={leader.id} 
+              leader={leader} 
+              onClick={() => onSelectLeader?.(leader)}
+            />
           ))}
         </div>
         {mayors.length === 0 && (
