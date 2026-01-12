@@ -61,7 +61,7 @@ export default function FutureNumbersPage() {
                 <div className="text-xs text-cyan-300 mt-1">2.8% annual growth</div>
               </div>
               <div className="bg-linear-to-r from-cyan-600/30 to-blue-600/30 rounded-lg p-4 text-center border-2 border-cyan-400/50">
-                <div className="text-sm text-cyan-200 mb-2">2037 With Illumio</div>
+                <div className="text-sm text-cyan-200 mb-2">2037 With PhnxRise</div>
                 <div className="text-3xl font-bold text-green-400">$52.6T</div>
                 <div className="text-xs text-cyan-300 mt-1">4.9% annual growth</div>
               </div>
@@ -86,7 +86,7 @@ export default function FutureNumbersPage() {
                   <div>
                     <div className="text-cyan-200">Total Investment:</div>
                     <div className="text-2xl font-bold text-cyan-400">$1.25T</div>
-                    <div className="text-xs text-cyan-300">(Illumio Fund + federal reallocations + state co-investment)</div>
+                    <div className="text-xs text-cyan-300">(PhnxRise Fund + federal reallocations + state co-investment)</div>
                   </div>
                   <div>
                     <div className="text-cyan-200">Total Economic Value Created:</div>
@@ -491,7 +491,7 @@ export default function FutureNumbersPage() {
                       <li>• Renewable Energy: 2.6x (independence → trade balance)</li>
                     </ul>
                   </li>
-                  <li><strong>Velocity of Money:</strong> Illumio wages → consumer spending → business growth → tax revenue</li>
+                  <li><strong>Velocity of Money:</strong> PhnxRise wages → consumer spending → business growth → tax revenue</li>
                   <li><strong>Innovation Index:</strong> +67% increase by 2037 (STEM workforce, R&D investment)</li>
                   <li><strong>Life Expectancy:</strong> +3.2 years national average (more productive years per citizen)</li>
                 </ul>
@@ -528,7 +528,7 @@ export default function FutureNumbersPage() {
                 </div>
                 <div className="bg-linear-to-r from-green-900/30 to-cyan-900/30 rounded p-3 border border-green-400/50">
                   <div className="text-green-400 font-bold text-2xl mb-1">$88.24T</div>
-                  <div className="text-cyan-200">Net benefit: Illumio vs. status quo</div>
+                  <div className="text-cyan-200">Net benefit: PhnxRise vs. status quo</div>
                 </div>
               </div>
             </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { NeuralGlassPanel } from '@/components/ui/NeuralGlassPanel';
 
-export default function IllumioCorePage() {
+export default function PhnxRiseCorePage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-6xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
-            Illumio Core Precepts
+            PhnxRise Core Precepts
           </h1>
           <p className="text-xl text-cyan-100 max-w-4xl mx-auto">
             A Whole-of-Nation Framework for Systemic Renewal
@@ -51,7 +51,7 @@ export default function IllumioCorePage() {
 
         {/* Governance Structure */}
         <NeuralGlassPanel className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-4">Illumio Council Structure</h2>
+          <h2 className="text-2xl font-bold text-cyan-300 mb-4">PhnxRise Council Structure</h2>
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold text-cyan-300 mb-3">Leadership Triad</h3>
@@ -239,7 +239,7 @@ export default function IllumioCorePage() {
               <h3 className="text-lg font-semibold text-cyan-300">Phase 3: Entrenchment (2033-2037)</h3>
               <ul className="text-sm text-cyan-100 mt-2 space-y-1">
                 <li>• NRC directives become de facto national mandates</li>
-                <li>• Global replication framework (Illumio International)</li>
+                <li>• Global replication framework (PhnxRise International)</li>
                 <li>• Full operational maturity</li>
               </ul>
             </div>
@@ -251,7 +251,7 @@ export default function IllumioCorePage() {
           <h2 className="text-2xl font-bold text-cyan-300 mb-4">Core Technologies</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-cyan-900/20 rounded-lg p-4">
-              <h4 className="font-bold text-cyan-300 mb-2">Illumio Core Platform</h4>
+              <h4 className="font-bold text-cyan-300 mb-2">PhnxRise Core Platform</h4>
               <p className="text-sm text-cyan-100">AI-driven coordination web app with blockchain transparency</p>
             </div>
             <div className="bg-cyan-900/20 rounded-lg p-4">
@@ -306,19 +306,19 @@ export default function IllumioCorePage() {
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-cyan-900/20 rounded-lg p-4">
                 <h4 className="font-bold text-cyan-300 mb-2">Consumption (C)</h4>
-                <p className="text-sm text-cyan-100">Household spending on goods and services. Illumio increases disposable income through wage policies and digital equity.</p>
+                <p className="text-sm text-cyan-100">Household spending on goods and services. PhnxRise increases disposable income through wage policies and digital equity.</p>
               </div>
               <div className="bg-cyan-900/20 rounded-lg p-4">
                 <h4 className="font-bold text-cyan-300 mb-2">Investment (I)</h4>
-                <p className="text-sm text-cyan-100">Business capital spending and construction. Illumio drives infrastructure and renewable energy investment.</p>
+                <p className="text-sm text-cyan-100">Business capital spending and construction. PhnxRise drives infrastructure and renewable energy investment.</p>
               </div>
               <div className="bg-cyan-900/20 rounded-lg p-4">
                 <h4 className="font-bold text-cyan-300 mb-2">Government Spending (G)</h4>
-                <p className="text-sm text-cyan-100">Public expenditure on goods and services. The Illumio Fund represents targeted, high-ROI public investment.</p>
+                <p className="text-sm text-cyan-100">Public expenditure on goods and services. The PhnxRise Fund represents targeted, high-ROI public investment.</p>
               </div>
               <div className="bg-cyan-900/20 rounded-lg p-4">
                 <h4 className="font-bold text-cyan-300 mb-2">Net Exports (X-M)</h4>
-                <p className="text-sm text-cyan-100">Exports minus imports. Illumio reduces critical import dependencies and boosts high-value exports.</p>
+                <p className="text-sm text-cyan-100">Exports minus imports. PhnxRise reduces critical import dependencies and boosts high-value exports.</p>
               </div>
             </div>
           </div>
@@ -340,7 +340,7 @@ export default function IllumioCorePage() {
               <div>
                 <h4 className="font-bold text-cyan-300 mb-3">Title I: Governance & Structure</h4>
                 <ul className="space-y-2 text-sm">
-                  <li>• Sec. 101: Establishment of the Illumio Commission</li>
+                  <li>• Sec. 101: Establishment of the PhnxRise Commission</li>
                   <li>• Sec. 102: Composition & Governance Triad</li>
                   <li>• Sec. 103: General Assembly (300 members)</li>
                   <li>• Sec. 104: Powers & Authorities</li>
@@ -352,7 +352,7 @@ export default function IllumioCorePage() {
               </div>
 
               <div>
-                <h4 className="font-bold text-cyan-300 mb-3">Title II: Illumio Fund Structure</h4>
+                <h4 className="font-bold text-cyan-300 mb-3">Title II: PhnxRise Fund Structure</h4>
                 <ul className="space-y-2 text-sm">
                   <li>• Sec. 201: Establishment as Government Corporation</li>
                   <li>• Sec. 202: Board of Directors (7 members, 7-year terms)</li>
@@ -421,7 +421,7 @@ export default function IllumioCorePage() {
               <div>
                 <h4 className="font-bold text-cyan-300 mb-3">Title VIII: Technology & Infrastructure</h4>
                 <ul className="space-y-2 text-sm">
-                  <li>• Sec. 801: Illumio Core Platform Development</li>
+                  <li>• Sec. 801: PhnxRise Core Platform Development</li>
                   <li>• Sec. 802: Quantum Encryption Standards</li>
                   <li>• Sec. 803: AI Governance Framework</li>
                   <li>• Sec. 804: Open Data & API Requirements</li>
@@ -846,7 +846,7 @@ export default function IllumioCorePage() {
                 <div className="text-xs text-cyan-300 mt-1">2.8% annual growth</div>
               </div>
               <div className="bg-linear-to-r from-cyan-600/30 to-blue-600/30 rounded-lg p-4 text-center border-2 border-cyan-400/50">
-                <div className="text-sm text-cyan-200 mb-2">2037 With Illumio</div>
+                <div className="text-sm text-cyan-200 mb-2">2037 With PhnxRise</div>
                 <div className="text-3xl font-bold text-green-400">$52.6T</div>
                 <div className="text-xs text-cyan-300 mt-1">4.9% annual growth</div>
               </div>
@@ -871,7 +871,7 @@ export default function IllumioCorePage() {
                   <div>
                     <div className="text-cyan-200">Total Investment:</div>
                     <div className="text-2xl font-bold text-cyan-400">$1.25T</div>
-                    <div className="text-xs text-cyan-300">(Illumio Fund + federal reallocations + state co-investment)</div>
+                    <div className="text-xs text-cyan-300">(PhnxRise Fund + federal reallocations + state co-investment)</div>
                   </div>
                   <div>
                     <div className="text-cyan-200">Total Economic Value Created:</div>
@@ -1276,7 +1276,7 @@ export default function IllumioCorePage() {
                       <li>• Renewable Energy: 2.6x (independence → trade balance)</li>
                     </ul>
                   </li>
-                  <li><strong>Velocity of Money:</strong> Illumio wages → consumer spending → business growth → tax revenue</li>
+                  <li><strong>Velocity of Money:</strong> PhnxRise wages → consumer spending → business growth → tax revenue</li>
                   <li><strong>Innovation Index:</strong> +67% increase by 2037 (STEM workforce, R&D investment)</li>
                   <li><strong>Life Expectancy:</strong> +3.2 years national average (more productive years per citizen)</li>
                 </ul>
@@ -1313,7 +1313,7 @@ export default function IllumioCorePage() {
                 </div>
                 <div className="bg-linear-to-r from-green-900/30 to-cyan-900/30 rounded p-3 border border-green-400/50">
                   <div className="text-green-400 font-bold text-2xl mb-1">$88.24T</div>
-                  <div className="text-cyan-200">Net benefit: Illumio vs. status quo</div>
+                  <div className="text-cyan-200">Net benefit: PhnxRise vs. status quo</div>
                 </div>
               </div>
             </div>
@@ -1365,7 +1365,7 @@ export default function IllumioCorePage() {
 
         {/* Mission Statement */}
         <NeuralGlassPanel className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-4">The Illumio Mission</h2>
+          <h2 className="text-2xl font-bold text-cyan-300 mb-4">The PhnxRise Mission</h2>
           <div className="space-y-4 text-cyan-100 text-center">
             <p className="text-xl italic">
               "It's Not Left. It's Not Right. It's Forward."

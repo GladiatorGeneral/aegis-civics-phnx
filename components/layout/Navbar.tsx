@@ -17,15 +17,15 @@ export function Navbar() {
   ];
 
   const securityPages = [
-    { href: "/illumio/blueprints", label: "SRD Dashboard" },
-    { href: "/illumio/blueprints/ai", label: "AI Security" },
-    { href: "/illumio/blueprints/food", label: "Food Security" },
-    { href: "/illumio/blueprints/water", label: "Water Security" },
-    { href: "/illumio/blueprints/medical", label: "Medical Security" },
-    { href: "/illumio/blueprints/financial", label: "Financial Security" },
-    { href: "/illumio/blueprints/education", label: "Education Security" },
-    { href: "/illumio/blueprints/renewal", label: "Systemic Renewal" },
-    { href: "/illumio/blueprints/yourmission", label: "Y/OUR Mission" },
+    { href: "/phnxrise/blueprints", label: "SRD Dashboard" },
+    { href: "/phnxrise/blueprints/ai", label: "AI Security" },
+    { href: "/phnxrise/blueprints/food", label: "Food Security" },
+    { href: "/phnxrise/blueprints/water", label: "Water Security" },
+    { href: "/phnxrise/blueprints/medical", label: "Medical Security" },
+    { href: "/phnxrise/blueprints/financial", label: "Financial Security" },
+    { href: "/phnxrise/blueprints/education", label: "Education Security" },
+    { href: "/phnxrise/blueprints/renewal", label: "Systemic Renewal" },
+    { href: "/phnxrise/blueprints/yourmission", label: "Y/OUR Mission" },
   ];
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -83,9 +83,9 @@ export function Navbar() {
             {/* Project Phnx: top-level link + dropdown for subpages */}
             <div className="relative flex items-center gap-2">
               <Link
-                href="/illumio"
+                href="/phnxrise"
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all font-medium ${
-                  pathname.startsWith("/illumio")
+                  pathname.startsWith("/phnxrise")
                     ? "bg-linear-to-r from-blue-500/20 to-purple-500/20 text-white border border-blue-500/30"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
                 }`}

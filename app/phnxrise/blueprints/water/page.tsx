@@ -1,9 +1,9 @@
 import React from "react";
 import { NeuralGlassPanel } from "@/components/ui/NeuralGlassPanel";
-import { WaterStats } from "@/components/illumio/WaterStats";
-import { NanoparticleTable } from "@/components/illumio/NanoparticleTable";
-import { DesalinationDiagram } from "@/components/illumio/DesalinationDiagram";
-import { ProductTierTable } from "@/components/illumio/ProductTierTable";
+import { WaterStats } from "@/components/phnxrise/WaterStats";
+import { NanoparticleTable } from "@/components/phnxrise/NanoparticleTable";
+import { DesalinationDiagram } from "@/components/phnxrise/DesalinationDiagram";
+import { ProductTierTable } from "@/components/phnxrise/ProductTierTable";
 
 export default function WaterSecurityPage() {
   return (

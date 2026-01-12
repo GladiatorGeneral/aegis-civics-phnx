@@ -6,14 +6,14 @@ export default function RenewalSecurityPage() {
         <div className="min-h-screen bg-linear-to-br from-slate-900 via-indigo-900 to-slate-800 p-4 md:p-8">
             <div className="max-w-5xl mx-auto py-8">
                 <div className="mb-8 text-center">
-                    <h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-emerald-300 to-cyan-400 bg-clip-text text-transparent mb-3">Project Illumio: Leadership & Action Plan</h1>
+                    <h1 className="text-4xl md:text-5xl font-extrabold bg-linear-to-r from-emerald-300 to-cyan-400 bg-clip-text text-transparent mb-3">Project PhnxRise: Leadership & Action Plan</h1>
                     <p className="text-slate-200 max-w-3xl mx-auto">Leadership roster, SRD action shards, and an implementation architecture for coordinated, sharded execution.</p>
                 </div>
 
                 <NeuralGlassPanel className="mb-6 bg-linear-to-r from-emerald-700/40 to-blue-800/30">
                     <h2 className="text-2xl font-bold text-cyan-300 mb-3">I. Leadership Role Filling — The Governing Core</h2>
 
-                    <p className="text-cyan-100 mb-3">Thank you for pointing that out. You are correct that focusing on specific, named individuals for the leadership roles in Project Illumio is premature and based on hypothetical data.</p>
+                    <p className="text-cyan-100 mb-3">Thank you for pointing that out. You are correct that focusing on specific, named individuals for the leadership roles in Project PhnxRise is premature and based on hypothetical data.</p>
 
                     <p className="text-cyan-100 mb-3">The critical next step is to define the precise <strong>qualification profiles, selection criteria, and appointment processes</strong> for the four core leadership positions. This will allow us to systematically source the right candidates.</p>
 
@@ -52,7 +52,7 @@ export default function RenewalSecurityPage() {
 
                         <div className="bg-slate-800 p-4 rounded border border-slate-700">
                             <h3 className="font-semibold text-emerald-300 mb-2">4. Chief Technology Architect (CTO of the System)</h3>
-                            <p className="text-cyan-100 mb-2">Builder of the "Illumio Core" digital backbone. Responsible for all tech integration, data sovereignty, and cybersecurity.</p>
+                            <p className="text-cyan-100 mb-2">Builder of the "PhnxRise Core" digital backbone. Responsible for all tech integration, data sovereignty, and cybersecurity.</p>
                             <ul className="list-disc list-inside text-cyan-100">
                                 <li><strong>Scale Proven:</strong> Former CTO of a national-scale platform (e.g., cloud provider, payment network)?</li>
                                 <li><strong>Public Sector Experience:</strong> Has built secure, compliant systems for government/military?</li>
@@ -180,7 +180,7 @@ export default function RenewalSecurityPage() {
                         <div>
                             <h4 className="text-lg font-semibold text-emerald-400">SRD 12: Civic Engagement — Cause Shard: Democratic Innovation</h4>
                             <ul className="list-disc list-inside text-cyan-100">
-                                <li>Launch Illumio Citizen Platform (deliberative democracy tool)</li>
+                                <li>Launch PhnxRise Citizen Platform (deliberative democracy tool)</li>
                                 <li>Implement ranked-choice voting in all member jurisdictions</li>
                                 <li>Create "Policy Simulator" for public testing of initiatives</li>
                             </ul>
@@ -204,7 +204,7 @@ export default function RenewalSecurityPage() {
                     <ul className="list-disc list-inside text-cyan-100 mb-3">
                         <li>Stand up leadership team</li>
                         <li>Activate SRD 1, 7, 11 (infrastructure triad)</li>
-                        <li>Deploy Illumio Core platform v1.0</li>
+                        <li>Deploy PhnxRise Core platform v1.0</li>
                         <li>Secure first 5 state commitments</li>
                     </ul>
 

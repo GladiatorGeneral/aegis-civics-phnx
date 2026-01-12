@@ -22,42 +22,42 @@ export default function Home() {
             <p className="text-sm mt-1">Federal finance indicators and projections</p>
           </Link>
 
-          <Link href="/illumio/blueprints/ai" className="block p-6 rounded-lg bg-gradient-to-r from-indigo-600 to-sky-500 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/ai" className="block p-6 rounded-lg bg-gradient-to-r from-indigo-600 to-sky-500 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">AI Security</h2>
             <p className="text-sm mt-1">Project Phnx — AI blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/food" className="block p-6 rounded-lg bg-gradient-to-r from-emerald-500 to-lime-400 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/food" className="block p-6 rounded-lg bg-gradient-to-r from-emerald-500 to-lime-400 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Food Security</h2>
             <p className="text-sm mt-1">Project Phnx — Food blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/water" className="block p-6 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-400 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/water" className="block p-6 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-400 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Water Security</h2>
             <p className="text-sm mt-1">Project Phnx — Water blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/medical" className="block p-6 rounded-lg bg-gradient-to-r from-rose-500 to-pink-400 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/medical" className="block p-6 rounded-lg bg-gradient-to-r from-rose-500 to-pink-400 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Medical Security</h2>
             <p className="text-sm mt-1">Project Phnx — Medical blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/financial" className="block p-6 rounded-lg bg-gradient-to-r from-amber-500 to-orange-400 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/financial" className="block p-6 rounded-lg bg-gradient-to-r from-amber-500 to-orange-400 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Financial Security</h2>
             <p className="text-sm mt-1">Project Phnx — Financial blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/education" className="block p-6 rounded-lg bg-gradient-to-r from-violet-600 to-purple-500 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/education" className="block p-6 rounded-lg bg-gradient-to-r from-violet-600 to-purple-500 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Education Security</h2>
             <p className="text-sm mt-1">Project Phnx — Education blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/renewal" className="block p-6 rounded-lg bg-gradient-to-r from-emerald-700 to-teal-500 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/renewal" className="block p-6 rounded-lg bg-gradient-to-r from-emerald-700 to-teal-500 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Systemic Renewal</h2>
             <p className="text-sm mt-1">Project Phnx — Systemic Renewal blueprint</p>
           </Link>
 
-          <Link href="/illumio/blueprints/yourmission" className="block p-6 rounded-lg bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white shadow-md hover:opacity-95">
+          <Link href="/phnxrise/blueprints/yourmission" className="block p-6 rounded-lg bg-gradient-to-r from-blue-500 to-fuchsia-500 text-white shadow-md hover:opacity-95">
             <h2 className="text-lg font-bold">Y/OUR Mission</h2>
             <p className="text-sm mt-1">Project Phnx — Your Mission curriculum</p>
           </Link>
