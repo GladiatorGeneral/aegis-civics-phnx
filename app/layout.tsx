@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import Link from "next/link";
 import { Mail, Phone, Instagram } from "lucide-react";
+import { PhnxAssistant } from "@/components/phnxrise/PhnxAssistant";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -87,6 +88,7 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+        <PhnxAssistant />
       </body>
     </html>
   );
