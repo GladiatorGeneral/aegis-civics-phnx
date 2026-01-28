@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import Link from "next/link";
 import { Mail, Phone, Instagram } from "lucide-react";
-import { PhnxAssistant } from "@/components/phnxrise/PhnxAssistant";
+// import { PhnxAssistant } from "@/components/phnxrise/PhnxAssistant";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -62,7 +62,7 @@ export default function RootLayout({
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-cyan-100" aria-hidden />
-                  <a href="tel:+12022026002" className="neural-gradient underline hover:text-white">+1 (202) 202-6002</a>
+                  <a href="tel:+16124040031" className="neural-gradient underline hover:text-white">+1 (612) 404-0031</a>
                 </div>
                 <div>
                   <Link href="/contact" className="text-cyan-100 hover:text-white hover:underline">Contact</Link>
@@ -88,7 +88,7 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
-        <PhnxAssistant />
+        {/* <PhnxAssistant /> */}
       </body>
     </html>
   );

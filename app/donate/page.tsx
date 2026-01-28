@@ -14,6 +14,7 @@ export default function DonatePage() {
   const BTC_ADDRESS = "bc1qewx9w4t8r2dfm3lk0ff5luc2d5wuq7566k9zch";
   const ETH_ADDRESS = "0xEB8218487dEb5FD9A5acA3E959EBb098b90c1A67";
   const USDC_ADDRESS = "0xEB8218487dEb5FD9A5acA3E959EBb098b90c1A67";
+  const CASHAPP_TAG = "$gladiatorsociety";
 
   return (
     <main className={`${styles.page}`}>
@@ -70,8 +71,15 @@ export default function DonatePage() {
             <DonationCard title="Bitcoin (BTC)" address={BTC_ADDRESS} /* explorer={"https://www.blockchain.com/btc/address/" + BTC_ADDRESS} */ />
             <DonationCard title="Ethereum (ETH)" address={ETH_ADDRESS} /* explorer={"https://etherscan.io/address/" + ETH_ADDRESS} */ />
             <DonationCard title="USDC (ERC-20)" address={USDC_ADDRESS} note={"USDC on Ethereum — paste into your wallet or use the QR."} /* explorer={"https://etherscan.io/address/" + USDC_ADDRESS} */ />
+                    </div>
+
+          {/* Cash App */}
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-3">Cash App</h3>
+            <DonationCard title="Cash App" address={CASHAPP_TAG} note="Send to $gladiatorsociety" />
           </div>
-          <div className="text-xs text-gray-400 mt-3">Replace placeholder addresses with your real wallet addresses before publishing.</div>
+
+          <div className="text-xs text-gray-400 mt-3">Donate today to help create a better tomorrow</div>
         </section>
       </div>
     </main>
